@@ -10,7 +10,7 @@ from sqlalchemy.exc import IntegrityError
 from helpers import APIHandler
 from data_parsers.helper_classes import GoogleDetails, FoursquareDetails
 import sqs
-
+# Need 3 instances running
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 FOURSQUARE_CLIENT_ID = os.getenv('FOURSQUARE_CLIENT_ID')
 FOURSQUARE_CLIENT_SECRET = os.getenv('FOURSQUARE_CLIENT_SECRET')

@@ -130,15 +130,14 @@ class FoursquareVenueDetails(Base):
 
     @property
     def has_happy_hour(self):
-        for menu in self.menu_items:
-            if 'happy' in self.menu_name(menu) or 'happy' in self.menu_description(menu):
-                return True
+        return bool(self.happy_hour_string)
 
     @property
     def happy_hour_string(self):
         for menu in self.menu_items:
             if 'happy' in self.menu_name(menu) or 'happy' in self.menu_description(menu):
                 return self.menu_description(menu)
+            return False
 
     @staticmethod
     def menu_name(menu):
@@ -146,7 +145,7 @@ class FoursquareVenueDetails(Base):
 
     @staticmethod
     def menu_description(menu):
-        return menu.get('description', '').lower()
+        return menu.get('description', 'Not Available').lower()
 
     def __repr__(self):
         return "<FS Venue Details: has_happy_hour: {}, happy_hour_string: {}>".format(

@@ -2,17 +2,34 @@ import os
 import logging
 import time
 import json
+import contextlib
+import sqlalchemy
+from sqlalchemy.orm import sessionmaker
 
 from helpers import APIHandler
 
 import sqs
 
-from data_parsers.helper_classes import FoursquareDetails
+from data_parsers.helper_classes import FoursquareVenueDetails
 
 FOURSQUARE_CLIENT_ID = os.getenv('FOURSQUARE_CLIENT_ID')
 FOURSQUARE_CLIENT_SECRET = os.getenv('FOURSQUARE_CLIENT_SECRET')
-BOTO_QUEUE_NAME_FS_DETAILS = 'fs_details_queue'
 BOTO_QUEUE_NAME_FS_MENU = 'fs_menu_details_queue'
+
+engine = sqlalchemy.create_engine(os.getenv('HAPPYFINDER_ENGINE'), encoding='utf8')
+Session = sessionmaker(engine)
+
+UPDATE_QUERY = """
+UPDATE happyfinder_schema.happyfinder SET
+happy_hour_string = VALUES(happy_hour_string),
+category = VALUES(category)
+WHERE fs_venue_id = :fs_venue_id;
+"""
+
+DELETE_QUERY = """
+DELETE FROM happyfinder_schema.happyfinder
+WHERE fs_venue_id = :fs_venue_id;
+"""
 
 
 def get_message(queue):
@@ -28,29 +45,27 @@ def check_errors(response):
     return response
 
 
-def send_message(queue, url):
-    response = queue.send_message(MessageBody=url)
-    check_errors(response)
-
-
-def make_url(data):
-    url = "https://api.foursquare.com/v2/venues/{}/menu?client_id={}&client_secret={}&v=20170109".format(
-        data.fs_venue_id, FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET)
-    return url
-
-
-def make_request(queue, message):
-    api = APIHandler(message)
+def parse_data(queue, data):
+    api = APIHandler(data.get('url'))
+    fs_venue_id = data.get('fs_venue_id')
+    category = data.get('category')
     api_data = api.get_load()
-    parsed_data = FoursquareDetails(api_data)
-    if parsed_data.has_menu and parsed_data.venues:
-        time.sleep(10)
-        url = make_url(parsed_data)
-        data = {
-            'url': url,
-            'fs_venue_id': parsed_data.fs_venue_id
-        }
-        send_message(queue, json.dumps(data))
+    parsed_data = FoursquareVenueDetails(api_data)
+    with contextlib.closing(Session()) as s:
+        try:
+            if parsed_data.has_happy_hour:
+                s.execute(UPDATE_QUERY, params={
+                    'happy_hour_string': parsed_data.happy_hour_string.encode('utf-8') if parsed_data.happy_hour_string else None,
+                    'category': category.encode('utf-8') if category else None,
+                    'fs_venue_id': fs_venue_id
+                })
+            else:
+                s.execute(DELETE_QUERY, params={'fs_venue_id': fs_venue_id.encode('utf-8')})
+        except Exception as err:
+            logging.info(err)
+            raise
+        else:
+            s.commit()
 
 
 def delete_message(queue, message):
@@ -82,17 +97,16 @@ def delete_message(queue, message):
 
 
 def run():
-    fs_details_queue = sqs.get_queue(BOTO_QUEUE_NAME_FS_DETAILS)
     menu_queue = sqs.get_queue(BOTO_QUEUE_NAME_FS_MENU)
     while True:
-        message = get_message(fs_details_queue)
+        message = get_message(menu_queue)
         if not message:
             logging.info(os.path.basename(__file__))
             time.sleep(5)
             continue
-        logging.info('menu queue: {}\nmessage.body:{}'.format(menu_queue, message.body))
-        make_request(menu_queue, message.body)
-        delete_message(fs_details_queue, message)
+        data = json.loads(message.body)
+        parse_data(menu_queue, data)
+        delete_message(menu_queue, message)
 
 
 if __name__ == '__main__':
