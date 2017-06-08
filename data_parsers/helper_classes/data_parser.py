@@ -30,19 +30,19 @@ class GoogleDetails(Base):
 
     @property
     def google_id(self):
-        return self.result.get('place_id', None)
+        return self.result.get('place_id')
 
     @property
     def address(self):
-        return self.result.get('formatted_address', '')
+        return self.result.get('formatted_address')
 
     @property
     def url(self):
-        return self.result.get('website', '')
+        return self.result.get('website')
 
     @property
     def phone_number(self):
-        return self.result.get('formatted_phone_number', '')
+        return self.result.get('formatted_phone_number')
 
     @property
     def opening_hours(self):
@@ -50,11 +50,11 @@ class GoogleDetails(Base):
 
     @property
     def hours(self):
-        return self.opening_hours.get('weekday_text', {})
+        return self.opening_hours.get('weekday_text')
 
     @property
     def rating(self):
-        return self.result.get('rating', '')
+        return self.result.get('rating')
 
     @property
     def geometry(self):
@@ -66,19 +66,19 @@ class GoogleDetails(Base):
 
     @property
     def lat(self):
-        return self.location.get('lat', '')
+        return self.location.get('lat')
 
     @property
     def lng(self):
-        return self.location.get('lng', '')
+        return self.location.get('lng')
 
     @property
     def name(self):
-        return self.result.get('name', '')
+        return self.result.get('name')
 
     @property
     def price(self):
-        return self.result.get('price_level', '')
+        return self.result.get('price_level')
 
     def __repr__(self):
         return "<Google Details: name: {}, lat: {}, lng: {}, rating: {}, hours: {}, phone_number: {}, address: {}>".format(
@@ -93,11 +93,11 @@ class FoursquareDetails(Base):
 
     @property
     def fs_venue_id(self):
-        return self.venues.get('id', '')
+        return self.venues.get('id')
 
     @property
     def category(self):
-        return self.venues.get('categories', '')[0].get('shortName', '')
+        return self.venues.get('categories', {})[0].get('shortName', '')
 
     @property
     def has_menu(self):

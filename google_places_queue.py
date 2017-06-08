@@ -10,6 +10,7 @@ from sqlalchemy.exc import IntegrityError
 from helpers import APIHandler
 from data_parsers.helper_classes import GoogleDetails, FoursquareDetails
 import sqs
+
 # Need 3 instances running
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 FOURSQUARE_CLIENT_ID = os.getenv('FOURSQUARE_CLIENT_ID')
@@ -53,32 +54,32 @@ def make_url(parsed_data):
 
 
 def insert_data(data, fs_venue_id):
-    with contextlib.closing(Session()) as s:
-        try:
-            s.execute(INSERT_QUERY, params={
-                'v_name': data.name.encode('utf-8') or None,
-                'lat': data.lat or None,
-                'lng': data.lng or None,
-                'hours': json.dumps(data.hours,
-                                    ensure_ascii=False) if data.hours else None,
-                'rating': data.rating if data.rating else None,
-                'phone_number': data.phone_number.encode(
-                    'utf-8') if data.phone_number else None,
-                'address': data.address.encode(
-                    'utf-8') if data.address else None,
-                'url': data.url.encode('utf-8') if data.url else None,
-                'google_id': data.google_id.encode('utf-8') or None,
-                'price': data.price if data.price else None,
-                'fs_venue_id': fs_venue_id.encode('utf-8') if fs_venue_id else None
-            })
-        except IntegrityError or Exception as e:
-            s.rollback()
-            if IntegrityError:
-                logging.info(e)
-                pass
-            else:
-                raise
-        else:
+    if fs_venue_id:
+        with contextlib.closing(Session()) as s:
+            try:
+                s.execute(INSERT_QUERY, params={
+                    'v_name': data.name.encode('utf-8') or None,
+                    'lat': data.lat or None,
+                    'lng': data.lng or None,
+                    'hours': json.dumps(data.hours,
+                                        ensure_ascii=False) if data.hours else None,
+                    'rating': data.rating if data.rating else None,
+                    'phone_number': data.phone_number.encode(
+                        'utf-8') if data.phone_number else None,
+                    'address': data.address.encode(
+                        'utf-8') if data.address else None,
+                    'url': data.url.encode('utf-8') if data.url else None,
+                    'google_id': data.google_id.encode('utf-8') or None,
+                    'price': data.price if data.price else None,
+                    'fs_venue_id': fs_venue_id.encode('utf-8') if fs_venue_id else None
+                })
+            except IntegrityError or Exception as err:
+                s.rollback()
+                if IntegrityError:
+                    logging.info(err)
+                    pass
+                else:
+                    raise
             s.commit()
 
 
