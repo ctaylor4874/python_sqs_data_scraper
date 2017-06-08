@@ -1,75 +1,70 @@
 {
-  "meta": {
-    "code": 200,
-    "requestId": "59380c349fb6b7371998c59e"
-  },
-  "response": {
-    "venues": [
-      {
-        "id": "57d179a3498e864533a76186",
-        "name": "Olive Garden",
-        "contact": {
-          "phone": "9095905465",
-          "formattedPhone": "(909) 590-5465"
-        },
-        "location": {
-          "address": "3801 Grand Ave",
-          "lat": 33.99968168178468,
-          "lng": -117.72124171257018,
-          "labeledLatLngs": [
-            {
-              "label": "display",
-              "lat": 33.99968168178468,
-              "lng": -117.72124171257018
-            }
-          ],
-          "distance": 1,
-          "postalCode": "91710",
-          "cc": "US",
-          "city": "Chino",
-          "state": "CA",
-          "country": "United States",
-          "formattedAddress": [
-            "3801 Grand Ave",
-            "Chino, CA 91710",
-            "United States"
-          ]
-        },
-        "categories": [
+  'venues': [
+    {
+      'url': 'http://nypizzaexchange.eat24hour.com',
+      'hasPerk': False,
+      'name': 'New York Pizza Exchange',
+      'allowMenuUrlEdit': True,
+      'menu': {
+        'url': 'https://foursquare.com/v/new-york-pizza-exchange/4b886496f964a52092f431e3/menu',
+        'anchor': 'View Menu',
+        'label': 'Menu',
+        'type': 'Menu',
+        'mobileUrl': 'https://foursquare.com/v/4b886496f964a52092f431e3/device_menu'
+      },
+      'categories': [
+        {
+          'shortName': 'Pizza',
+          'primary': True,
+          'name': 'Pizza Place',
+          'pluralName': 'Pizza Places',
+          'id': '4bf58dd8d48988d1ca941735',
+          'icon': {
+            'prefix': 'https://ss3.4sqi.net/img/categories_v2/food/pizza_',
+            'suffix': '.png'
+          }
+        }
+      ],
+      'beenHere': {
+        'lastCheckinExpiredAt': 0
+      },
+      'referralId': 'v-1496934283',
+      'stats': {
+        'tipCount': 37,
+        'usersCount': 1066,
+        'checkinsCount': 2044
+      },
+      'verified': False,
+      'contact': {
+        'formattedPhone': '(770) 434-9355',
+        'phone': '7704349355'
+      },
+      'id': '4b886496f964a52092f431e3',
+      'hasMenu': True,
+      'venueChains': [],
+      'location': {
+        'formattedAddress': [
+          '2810 Paces Ferry Rd SE',
+          'Atlanta, GA 30339',
+          'United States'
+        ],
+        'distance': 2,
+        'lng': -84.4692474603653,
+        'lat': 33.86568073560418,
+        'labeledLatLngs': [
           {
-            "id": "4bf58dd8d48988d110941735",
-            "name": "Italian Restaurant",
-            "pluralName": "Italian Restaurants",
-            "shortName": "Italian",
-            "icon": {
-              "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/italian_",
-              "suffix": ".png"
-            },
-            "primary": true
+            'label': 'display',
+            'lng': -84.4692474603653,
+            'lat': 33.86568073560418
           }
         ],
-        "verified": false,
-        "stats": {
-          "checkinsCount": 5,
-          "usersCount": 4,
-          "tipCount": 0
-        },
-        "hasMenu": true,
-        "menu": {
-          "type": "Menu",
-          "label": "Menu",
-          "anchor": "View Menu",
-          "url": "https:\/\/foursquare.com\/v\/olive-garden\/57d179a3498e864533a76186\/menu",
-          "mobileUrl": "https:\/\/foursquare.com\/v\/57d179a3498e864533a76186\/device_menu"
-        },
-        "allowMenuUrlEdit": true,
-        "beenHere": {
-          "lastCheckinExpiredAt": 0
-        },
-        "referralId": "v-1496845364",
-        "venueChains": [],
-        "hasPerk": false
+        'address': '2810 Paces Ferry Rd SE',
+        'postalCode': '30339',
+        'country': 'United States',
+        'state': 'GA',
+        'cc': 'US',
+        'city': 'Atlanta'
       }
-    ]
-  }
+    }
+  ]
 }

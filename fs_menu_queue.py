@@ -40,9 +40,11 @@ def make_url(data):
 
 
 def make_request(queue, message):
-    api_data = APIHandler(message)
+    api = APIHandler(message)
+    api_data = api.get_load()
     parsed_data = FoursquareDetails(api_data)
-    if parsed_data.has_menu and parsed_data.has_venues:
+    if parsed_data.has_menu and parsed_data.venues:
+        time.sleep(10)
         url = make_url(parsed_data)
         data = {
             'url': url,
@@ -85,14 +87,16 @@ def run():
     while True:
         message = get_message(fs_details_queue)
         if not message:
+            logging.info(os.path.basename(__file__))
             time.sleep(5)
             continue
+        logging.info('menu queue: {}\nmessage.body:{}'.format(menu_queue, message.body))
         make_request(menu_queue, message.body)
         delete_message(fs_details_queue, message)
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=10, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
+    logging.basicConfig(level=20, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
     try:
         run()
     except Exception as e:

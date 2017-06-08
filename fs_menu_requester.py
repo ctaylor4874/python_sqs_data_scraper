@@ -20,7 +20,7 @@ BOTO_QUEUE_NAME_FS_MENU = 'fs_menu_details_queue'
 engine = sqlalchemy.create_engine(os.getenv('HAPPYFINDER_ENGINE'), encoding='utf8')
 Session = sessionmaker(engine)
 
-INSERT_QUERY = """
+UPDATE_QUERY = """
 UPDATE happyfinder_schema.happyfinder SET
 happy_hour_string = :happy_hour_string
 WHERE fs_venue_id = :fs_venue_id;
@@ -46,14 +46,15 @@ def check_errors(response):
     return response
 
 
-def make_request(queue, data):
-    api_data = APIHandler(data.get('url', ''))
-    fs_venue_id = data.get('fs_venue_id', '')
+def parse_data(queue, data):
+    api = APIHandler(data.get('url'))
+    fs_venue_id = data.get('fs_venue_id')
+    api_data = api.get_load()
     parsed_data = FoursquareVenueDetails(api_data)
     with contextlib.closing(Session()) as s:
         try:
             if parsed_data.happy_hour_string:
-                s.execute(INSERT_QUERY, params={
+                s.execute(UPDATE_QUERY, params={
                     'happy_hour_string': parsed_data.happy_hour_string,
                     'fs_venue_id': fs_venue_id
                 })
@@ -97,10 +98,11 @@ def run():
     while True:
         message = get_message(menu_queue)
         if not message:
+            logging.info(os.path.basename(__file__))
             time.sleep(5)
             continue
         data = json.loads(message.body)
-        make_request(menu_queue, data)
+        parse_data(menu_queue, data)
         delete_message(menu_queue, message)
 
 

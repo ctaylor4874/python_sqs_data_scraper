@@ -12,6 +12,8 @@ BOTO_QUEUE_NAME_RADAR = 'radar_search_queue'
 BOTO_QUEUE_NAME_LAT_LNG = 'lat_lng_queue'
 
 
+# {"start_lat": 33.863164999999974, "start_lng": -84.50515199999998, "end_lat": 33.872696, "end_lng": -84.295349}
+
 def gen_coordinates(start_lat, start_lng, end_lat, end_lng):
     # Cities Scraped: Austin, Houston, Denver, Dallas, SF, Boston, NYC, Seattle,
     # Chicago, LA, SLC, Philly, Raleigh, Atlanta
@@ -116,14 +118,16 @@ def run():
     while True:
         message = get_coordinates(lat_lng_queue)
         if not message:
+            logging.info(os.path.basename(__file__))
             time.sleep(5)
             continue
         coordinates = json.loads(message.body)
-        urls = gen_coordinates(coordinates['start_lat'], coordinates['start_lng'], coordinates['end_lat'], coordinates['end_lng'])
-        delete_message(lat_lng_queue, message)
+        urls = gen_coordinates(coordinates['start_lat'], coordinates['start_lng'], coordinates['end_lat'],
+                               coordinates['end_lng'])
         for url in urls:
             response = send_message(radar_queue, url)
             check_errors(response)
+        delete_message(lat_lng_queue, message)
 
 
 if __name__ == '__main__':

@@ -26,7 +26,7 @@ class Base:
 class GoogleDetails(Base):
     @property
     def result(self):
-        return self.data.get('result')
+        return self.data.get('result', {})
 
     @property
     def google_id(self):
@@ -58,7 +58,7 @@ class GoogleDetails(Base):
 
     @property
     def geometry(self):
-        return self.result.get('geometry', '')
+        return self.result.get('geometry', {})
 
     @property
     def location(self):
@@ -92,31 +92,29 @@ class FoursquareDetails(Base):
         return self.data.get('response', {})
 
     @property
-    def has_venues(self):
-        return bool(self.res.get('venues', ''))
-
-    @property
     def fs_venue_id(self):
-        if self.has_venues:
-            return self.venues()[0].get('id', '')
+        return self.venues.get('id', '')
 
     @property
     def category(self):
-        if self.has_venues:
-            return self.venues()[0].get('categories', '')[0].get('shortName', '')
+        return self.venues.get('categories', '')[0].get('shortName', '')
 
     @property
     def has_menu(self):
-        return True if 'has_menu' in self.res else False
+        return True if 'hasMenu' in self.venues else False
 
+    @property
     def venues(self):
-        return self.res.get('venues', '')
+        return self.res.get('venues')[0] if len(self.res.get('venues')) else {}
+
+    def __repr__(self):
+        return "FS Details: Response: {}".format(self.res)
 
 
 class FoursquareVenueDetails(Base):
     @property
     def res_detailed(self):
-        return self.data.get('response', '')
+        return self.data.get('response', {})
 
     @property
     def menu(self):
@@ -151,9 +149,10 @@ class FoursquareVenueDetails(Base):
         return menu.get('description', '').lower()
 
     def __repr__(self):
-        return "<FS Details: has_happy_hour: {}, happy_hour_string: {}>".format(
+        return "<FS Venue Details: has_happy_hour: {}, happy_hour_string: {}>".format(
             self.has_happy_hour, self.happy_hour_string
         )
+
 
 def scrape():
     # Cities Scraped: Austin, Houston, Denver, Dallas, SF, Boston, NYC, Seattle,

@@ -82,14 +82,20 @@ def insert_data(data, fs_venue_id):
             s.commit()
 
 
+def get_fs_venue_id(message):
+    fs_api = APIHandler(message)
+    fs_api_data = fs_api.get_load()
+    fs_data = FoursquareDetails(fs_api_data)
+    return fs_data.fs_venue_id
+
+
 def make_request(queue, message):
-    api_data = APIHandler(message)
+    api = APIHandler(message)
+    api_data = api.get_load()
     parsed_data = GoogleDetails(api_data)
     url = make_url(parsed_data)
-    fs_api_data = APIHandler(message)
-    fs_data = FoursquareDetails(fs_api_data)
-    fs_venue = FoursquareDetails(fs_data)
-    insert_data(parsed_data, fs_venue.fs_venue_id)
+    fs_venue_id = get_fs_venue_id(url)
+    insert_data(parsed_data, fs_venue_id)
     send_message(queue, url)
 
 
@@ -127,6 +133,7 @@ def run():
     while True:
         message = get_message(google_places_queue)
         if not message:
+            logging.info(os.path.basename(__file__))
             time.sleep(5)
             continue
         make_request(foursquare_details_queue, message.body)
