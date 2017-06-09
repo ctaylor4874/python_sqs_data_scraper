@@ -21,6 +21,7 @@ Session = sessionmaker(engine)
 class Base:
     def __init__(self, data):
         self.data = data
+        self.has_happy_hour = False
 
 
 class GoogleDetails(Base):
@@ -126,18 +127,25 @@ class FoursquareVenueDetails(Base):
 
     @property
     def menu_items(self):
-        return self.menus.get('items', {})
-
-    @property
-    def has_happy_hour(self):
-        return bool(self.happy_hour_string)
+        return self.menus.get('items', [])
 
     @property
     def happy_hour_string(self):
-        for menu in self.menu_items:
-            if 'happy' in self.menu_name(menu) or 'happy' in self.menu_description(menu):
-                return self.menu_description(menu)
-            return False
+        try:
+            for menu in self.menu_items:
+                if 'happy' in self.menu_name(menu) or 'happy' in self.menu_description(menu):
+                    self.has_happy_hour = True
+                    return self.menu_description(menu)
+                if 'entries' in menu:
+                    if 'items' in menu['entries']:
+                        for item in menu['entries']['items']:
+                            if 'name' in item:
+                                if 'happy' in item['name'].lower():
+                                    self.has_happy_hour = True
+                                    return 'Not Available'
+        except AttributeError as e:
+            logging.info(e)
+            return None
 
     @staticmethod
     def menu_name(menu):

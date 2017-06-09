@@ -12,7 +12,7 @@ BOTO_QUEUE_NAME_RADAR = 'radar_search_queue'
 BOTO_QUEUE_NAME_LAT_LNG = 'lat_lng_queue'
 
 
-# {"start_lat": 33.863164999999974, "start_lng": -84.50515199999998, "end_lat": 33.872696, "end_lng": -84.295349}
+# {"start_lat": 29.745712, "start_lng": -95.391927, "end_lat": 29.747826, "end_lng": -95.389770}
 
 def gen_coordinates(start_lat, start_lng, end_lat, end_lng):
     # Cities Scraped: Austin, Houston, Denver, Dallas, SF, Boston, NYC, Seattle,
@@ -131,7 +131,7 @@ def run():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=10, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
+    logging.basicConfig(level=20, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
     try:
         run()
     except Exception as e:

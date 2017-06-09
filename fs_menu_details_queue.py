@@ -10,6 +10,7 @@ from helpers import APIHandler
 
 import sqs
 
+from helpers import delete_message
 from data_parsers.helper_classes import FoursquareVenueDetails
 
 FOURSQUARE_CLIENT_ID = os.getenv('FOURSQUARE_CLIENT_ID')
@@ -21,8 +22,8 @@ Session = sessionmaker(engine)
 
 UPDATE_QUERY = """
 UPDATE happyfinder_schema.happyfinder SET
-happy_hour_string = VALUES(happy_hour_string),
-category = VALUES(category)
+happy_hour_string = :happy_hour_string,
+category = :category
 WHERE fs_venue_id = :fs_venue_id;
 """
 
@@ -45,55 +46,34 @@ def check_errors(response):
     return response
 
 
-def parse_data(queue, data):
+def parse_data(data):
     api = APIHandler(data.get('url'))
     fs_venue_id = data.get('fs_venue_id')
     category = data.get('category')
     api_data = api.get_load()
     parsed_data = FoursquareVenueDetails(api_data)
     with contextlib.closing(Session()) as s:
-        try:
-            if parsed_data.has_happy_hour:
+        if parsed_data.happy_hour_string or parsed_data.has_happy_hour:
+            try:
+                print('Has Happy Hour')
                 s.execute(UPDATE_QUERY, params={
-                    'happy_hour_string': parsed_data.happy_hour_string.encode('utf-8') if parsed_data.happy_hour_string else None,
+                    'happy_hour_string': parsed_data.happy_hour_string.encode(
+                        'utf-8') if parsed_data.happy_hour_string else None,
                     'category': category.encode('utf-8') if category else None,
                     'fs_venue_id': fs_venue_id
                 })
-            else:
-                s.execute(DELETE_QUERY, params={'fs_venue_id': fs_venue_id.encode('utf-8')})
-        except Exception as err:
-            logging.info(err)
-            raise
-        else:
+            except Exception as err:
+                s.rollback()
+                raise
             s.commit()
-
-
-def delete_message(queue, message):
-    """
-    Delete the message from the queue.
-
-    See: http://boto3.readthedocs.io/en/latest/reference/services/sqs.html#SQS.Queue.delete_messages
-    :return:
-    """
-    entries = [
-        {
-            'Id': message.message_id,
-            'ReceiptHandle': message.receipt_handle
-        }
-    ]
-    response = queue.delete_messages(Entries=entries)
-
-    successful = response.get('Successful', [{}])[0].get('Id') == message.message_id
-    if successful:
-        return
-
-    failure_details = response.get('Failed', [{}])
-    failed_message_id = failure_details.get('Id')
-    if failed_message_id != message.message_id:
-        raise ValueError('Delete message was unsuccessful but failed message id does not match expected message id. '
-                         'failed_message_id={} expected_message_id={}'.format(failed_message_id, message.message_id))
-
-    raise ('Details: {}\nID: {}'.format(failure_details, failed_message_id))
+        else:
+            try:
+                print('{}\nDeleting'.format(fs_venue_id))
+                s.execute(DELETE_QUERY, params={'fs_venue_id': fs_venue_id})
+            except Exception as err:
+                s.rollback()
+                raise
+            s.commit()
 
 
 def run():
@@ -105,12 +85,12 @@ def run():
             time.sleep(5)
             continue
         data = json.loads(message.body)
-        parse_data(menu_queue, data)
+        parse_data(data)
         delete_message(menu_queue, message)
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=20, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
+    logging.basicConfig(level=30, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
     try:
         run()
     except Exception as e:

@@ -1,6 +1,2816 @@
 {
   "meta": {
     "code": 200,
+    "requestId": "593aeb47db04f547b5de9bd1"
+  },
+  "response": {
+    "menu": {
+      "provider": {
+        "name": "singleplatform",
+        "attributionImage": "https:\/\/as.singleplatform.com\/Foursquare\/baba-yega-cafe\/provided_by.png",
+        "attributionLink": "http:\/\/w.singlepage.com\/baba-yega-cafe\/menu?ref=Foursquare",
+        "attributionText": "Disclaimer: Always check with the business for pricing and availability of menu items. SinglePlatform is not responsible for menu or pricing changes, but the information is believed to be accurate when posted. Listing of a menu does not mean that there is any affiliation, endorsement or sponsorship between SinglePlatform and the listed business."
+      },
+      "menus": {
+        "count": 8,
+        "items": [
+          {
+            "menuId": "mdmzakoyzkiuccleqprq8n2nk",
+            "name": "Coffee, Tea, & More",
+            "description": "",
+            "entries": {
+              "count": 3,
+              "items": [
+                {
+                  "sectionId": "s8784024",
+                  "name": "Coffee\/tea Drinks - Alcoholic",
+                  "entries": {
+                    "count": 7,
+                    "items": [
+                      {
+                        "entryId": "58367326",
+                        "name": "Grand Coffee",
+                        "description": "Grand Marnier Raspberry Peach & Coffee",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367327",
+                        "name": "Mad Monk",
+                        "description": "Frangelico, Peppermint Schnapps, Hot Chocolate & Coffee",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367329",
+                        "name": "Roman Rasta Coffee",
+                        "description": "Sambuca, Meyer's Rum & Coffee",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367331",
+                        "name": "Rumchata Latte",
+                        "description": "Rumchata, steamed milk & espresso",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367332",
+                        "name": "Russian Coffee",
+                        "description": "Stolichnaya, Kahlua, Amaretto & Coffee",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367334",
+                        "name": "Snowball",
+                        "description": "Cinnamon Schnapps, Kahlua & Coffee",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367335",
+                        "name": "Spicy Vanilla Tea",
+                        "description": "Bailey's Vanilla Cinnamon & Hot Tea",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784025",
+                  "name": "Non-Alcoholic",
+                  "description": "Add one of our flavored syrups to any drink at no extra charge",
+                  "entries": {
+                    "count": 27,
+                    "items": [
+                      {
+                        "entryId": "58367337",
+                        "name": "Fresh Squeezed Grapefruit Juice",
+                        "prices": [
+                          "3.00"
+                        ],
+                        "price": "3.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "83689214",
+                        "name": "Orange Juice",
+                        "prices": [
+                          "3.00"
+                        ],
+                        "price": "3.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367340",
+                        "name": "Juices",
+                        "description": "Apple, Cranberry, Mango, Pineapple, Pomegrenate & Tomato",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367342",
+                        "name": "Fresh Lemonade",
+                        "prices": [
+                          "3.00"
+                        ],
+                        "price": "3.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367343",
+                        "name": "Taste Nirvana Coconut Water",
+                        "prices": [
+                          "3.25"
+                        ],
+                        "price": "3.25",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367345",
+                        "name": "Red Bull",
+                        "prices": [
+                          "3.00"
+                        ],
+                        "price": "3.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367347",
+                        "name": "Ice-Cream Floats",
+                        "prices": [
+                          "4.50"
+                        ],
+                        "price": "4.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367349",
+                        "name": "Milkshakes (Seasonal Fruits)",
+                        "prices": [
+                          "4.50"
+                        ],
+                        "price": "4.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367351",
+                        "name": "Smoothies (Seasonal Fruits)",
+                        "prices": [
+                          "3.50"
+                        ],
+                        "price": "3.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367353",
+                        "name": "Milk",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367355",
+                        "name": "Almond Milk",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367357",
+                        "name": "Soy Milk",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367359",
+                        "name": "Hot Chocolate",
+                        "prices": [
+                          "2.75"
+                        ],
+                        "price": "2.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367361",
+                        "name": "Coffee",
+                        "description": "Regular\/Decaf (Organic\/Fairtrade)",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367363",
+                        "name": "Cappuccino",
+                        "description": "Regular\/Decaf",
+                        "prices": [
+                          "3.50"
+                        ],
+                        "price": "3.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367364",
+                        "name": "Latte",
+                        "description": "Regular\/Decaf",
+                        "prices": [
+                          "3.50"
+                        ],
+                        "price": "3.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367366",
+                        "name": "Espresso",
+                        "description": "Regular\/Decaf",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367368",
+                        "name": "Chai Latte",
+                        "prices": [
+                          "3.50"
+                        ],
+                        "price": "3.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367370",
+                        "name": "Iced Tea",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367372",
+                        "name": "Hibiscus Mint Herbal Iced Tea",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367374",
+                        "name": "Harney & Sons Bottled Organic Green Tea",
+                        "prices": [
+                          "2.75"
+                        ],
+                        "price": "2.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367376",
+                        "name": "Hot Teas",
+                        "description": "Black\/Herbals",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367377",
+                        "name": "Soft Drinks",
+                        "description": "Free Refills",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367378",
+                        "name": "Ginger Ale By Bruce Cost",
+                        "description": "With fresh ginger",
+                        "prices": [
+                          "2.75"
+                        ],
+                        "price": "2.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367379",
+                        "name": "Dublin Vanilla Cream Soda",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367380",
+                        "name": "St. Arnold's Root Beer",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367381",
+                        "name": "Cock N Bull Ginger Beer",
+                        "prices": [
+                          "2.50"
+                        ],
+                        "price": "2.50",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784031",
+                  "name": "Bottled Waters",
+                  "entries": {
+                    "count": 2,
+                    "items": [
+                      {
+                        "entryId": "58367382",
+                        "name": "Ut Tower Rain Water",
+                        "prices": [
+                          "2.25"
+                        ],
+                        "price": "2.25",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367383",
+                        "name": "Topo Chico Mineral Water",
+                        "prices": [
+                          "2.25"
+                        ],
+                        "price": "2.25",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "menuId": "mzskwpa7j2d0c31i5e8cuh712",
+            "name": "Vegetarian Menu",
+            "description": "",
+            "entries": {
+              "count": 1,
+              "items": [
+                {
+                  "sectionId": "s8784009",
+                  "name": "Wholesome Vegetarian",
+                  "description": "Sandwiches & Burgers served with choice of potato salad or french fries. Substitute garden salad, fresh fruit or sweet potato fries for $1",
+                  "entries": {
+                    "count": 8,
+                    "items": [
+                      {
+                        "entryId": "58367217",
+                        "name": "Hippie Meatloaf",
+                        "description": "A wonderful gluten-friendly vegan meatloaf made from quinoa, order black beans, herbs & vegetables topped with gravy, served with vegan mashed potatoes and sautéed spinach & garlic",
+                        "prices": [
+                          "12.00"
+                        ],
+                        "price": "12.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367218",
+                        "name": "Smashed Chickpea Salad Lettuce Wrap",
+                        "description": "A delicious combination of chickpeas, celery, carrots, vegenaise & spices, served with avocado, red onion, tomato, cucumber & sprouts",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367220",
+                        "name": "Black Bean Burger",
+                        "description": "Our homemade black bean patty topped with guacamole & chipotle mayo on a whole wheat bun with lettuce, look tomato, onion & pickle on the side",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367221",
+                        "name": "Portabello Burger",
+                        "description": "Grilled portabello mushroom, topped with mixed field greens, roasted red bell pepper & fresh basil mayo on a whole wheat bun",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367222",
+                        "name": "Basil Sunshine",
+                        "description": "Fresh mozzarella, spinach, tomato & roasted red bell pepper on our homemade focaccia bread served with a side of basil vinaigrette",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367224",
+                        "name": "California",
+                        "description": "Avocado, sprouts, provolone cheese, tomato & mayo served on whole wheat bread",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367225",
+                        "name": "Vegetarian Club",
+                        "description": "Smoked turkey-style gluten, fakin' bacon, provolone cheese, lettuce, tomato & mayonnaise on toasted wheat bread",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367227",
+                        "name": "Vegetarian Reuben",
+                        "description": "Our homemade wheat roast, melted Swiss & sauerkraut served with 1000 island dressing on a tasty marbled rye",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "menuId": "mtbj3d7of3old2bnosejy07t3",
+            "name": "Beer Menu",
+            "description": "",
+            "entries": {
+              "count": 1,
+              "items": [
+                {
+                  "sectionId": "s8784016",
+                  "name": "Beers",
+                  "entries": {
+                    "count": 23,
+                    "items": [
+                      {
+                        "entryId": "58367253",
+                        "name": "Kaliber (Non-Alcoholic By Guinness)",
+                        "prices": [
+                          "3.50"
+                        ],
+                        "price": "3.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367254",
+                        "name": "Bud Light Platinum",
+                        "prices": [
+                          "4.25"
+                        ],
+                        "price": "4.25",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367256",
+                        "name": "Budweiser",
+                        "prices": [
+                          "4.25"
+                        ],
+                        "price": "4.25",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367257",
+                        "name": "Dos Equis Lager",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367259",
+                        "name": "Firemans #4 Blonde Ale",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367260",
+                        "name": "Karbach Hopadillo Ipa",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367261",
+                        "name": "Karbach Seasonal",
+                        "description": "Ask your server",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367263",
+                        "name": "Karbach Weisse Versa",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367264",
+                        "name": "Miller Lite",
+                        "prices": [
+                          "4.25"
+                        ],
+                        "price": "4.25",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367266",
+                        "name": "Rahr & Sons Texas Red Amber Lager",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367268",
+                        "name": "Rahr & Sons Ugly Pug Black Lager",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367270",
+                        "name": "St. Arnold's Elissa Ipa",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367272",
+                        "name": "St. Arnold's Seasonal",
+                        "description": "Ask your server",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367273",
+                        "name": "Shiner Bock",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367275",
+                        "name": "Shiner Seasonal",
+                        "description": "Ask your server",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367276",
+                        "name": "Shiner White Wing Belgian White",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367278",
+                        "name": "Southern Star Bombshell Blonde Ale",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367279",
+                        "name": "Southern Star Seasonal",
+                        "description": "Ask your server",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367281",
+                        "name": "Stella Artois",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367282",
+                        "name": "Victoria Vienna-Style Lager",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367284",
+                        "name": "Warsteiner",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367286",
+                        "name": "Omission Pale Ale",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367288",
+                        "name": "Angry Orchard Hard Cider",
+                        "prices": [
+                          "4.75"
+                        ],
+                        "price": "4.75",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "menuId": "mq8wh49do86nx0je25qhnqa2m",
+            "name": "Wine Menu",
+            "description": "Tuesday Night Wine Special: Caldora Montepulciano D\"Abruzzo & Ruffino Pinot Grigio Only $5! Happy Hour: Tuesday thru Thursday 4 - 7; Friday 3-8; $1 off all bar drinks; $2 off all appetizers",
+            "entries": {
+              "count": 7,
+              "items": [
+                {
+                  "sectionId": "s8784021",
+                  "name": "White Wines",
+                  "entries": {
+                    "count": 8,
+                    "items": [
+                      {
+                        "entryId": "58367310",
+                        "name": "Man Vintners Chenin Blanc, Malady South Africa",
+                        "description": "Tropical fruit, guava & apple aromas, bold sweet citrus flavors backed by refreshing acidity & minerality",
+                        "prices": [
+                          "8.00"
+                        ],
+                        "price": "8.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367312",
+                        "name": "El Hada, Spain",
+                        "description": "A delicious dry white blend from Verdejo & Viura grapes, with vivid flavors of citrus & peach",
+                        "prices": [
+                          "6.50"
+                        ],
+                        "price": "6.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "83689215",
+                        "name": "Kung Fu Girl Riesling, Washington State",
+                        "description": "White stone fruit, white peach & apricot, think fuji apple, shiro plum & lime leaves",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367317",
+                        "name": "Buehler Chardonnay",
+                        "description": "Russian River Valley, California Aromas of fresh honeysuckle & pineapple with hints of white peach",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367318",
+                        "name": "Ruffino Pinot Grigio, Italy",
+                        "description": "Golden apple, honeyed pear & citrus notes, along with a touch of minerality, medium-bodied.",
+                        "prices": [
+                          "6.50"
+                        ],
+                        "price": "6.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "83689216",
+                        "name": "14 Hands Moscato, Washington State",
+                        "description": "Aromas of rose petal, see lychee & pear with appealing citrus peel undertone",
+                        "prices": [
+                          "8.00"
+                        ],
+                        "price": "8.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367320",
+                        "name": "Twin Islands Sauvignon Blanc, New Zealand",
+                        "description": "Pale lemon in color, intense aromas of passion fruit & papaya with some grapefruit & fresh garden herb notes",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367321",
+                        "name": "Canyon Road White Zinfandel, California",
+                        "description": "Light-bodied with hints of strawberry, cherry & watermelon flavors and a smooth, crisp finish",
+                        "prices": [
+                          "6.00"
+                        ],
+                        "price": "6.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784023",
+                  "name": "Red Wines",
+                  "entries": {
+                    "count": 9,
+                    "items": [
+                      {
+                        "entryId": "58367322",
+                        "name": "Underwood Pinot Noir, Oregon",
+                        "description": "Exhibits aromas of cranberries & red raspberries with notes of smoke & spice",
+                        "prices": [
+                          "8.00"
+                        ],
+                        "price": "8.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367323",
+                        "name": "Borsao Berola, Spain",
+                        "description": "Deep cherry color, remarkably complex bouquet with hints of dark fruit & roasted balsamic notes",
+                        "prices": [
+                          "8.00"
+                        ],
+                        "price": "8.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367324",
+                        "name": "Caldora Montepulciano D\"abruzzo, Italy",
+                        "description": "Dry, medium to full bodied with dark cherry & plum fruit flavors",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367325",
+                        "name": "San Fabiano Chianti, Italy",
+                        "description": "Bouquet of sweet & sour cherries, saddle leather, herbs & spice, light, fruity & fresh",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367328",
+                        "name": "Hahn Winery Merlot, Central Coast",
+                        "description": "Garnet-ruby in color, this wine automatically recalls black cherry with hints of cocoa & cassis",
+                        "prices": [
+                          "8.00"
+                        ],
+                        "price": "8.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367330",
+                        "name": "Thelema Red Mountain Blend, South Africa",
+                        "description": "Spicy aromas of black pepper & mulberry mingle with the plum flavors in this soft & approachable wine",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367333",
+                        "name": "Don David Malbec Reserve, Argentina",
+                        "description": "Aromas of blueberry, boysenberry, charcoal, plenty of oak & hints of cardamom & star anise",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367336",
+                        "name": "'R' Collection Cabernet, California",
+                        "description": "Full bodied, beautifully balanced with rich flavors",
+                        "prices": [
+                          "8.50"
+                        ],
+                        "price": "8.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367338",
+                        "name": "Stag's Leap Cabernet Sauvignon, Napa Valley, California",
+                        "description": "Big and bold with vibrant fruit & great structure",
+                        "prices": [
+                          "49.00"
+                        ],
+                        "price": "49.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784026",
+                  "name": "Rose Wine",
+                  "entries": {
+                    "count": 1,
+                    "items": [
+                      {
+                        "entryId": "58367341",
+                        "name": "Gris Blanc Rose, France",
+                        "description": "Made from the Grenache Gris grape, pale hue and delicate red fruit aromas",
+                        "prices": [
+                          "7.50"
+                        ],
+                        "price": "7.50",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784027",
+                  "name": "Champagne & Sparkling Wine",
+                  "entries": {
+                    "count": 7,
+                    "items": [
+                      {
+                        "entryId": "58367344",
+                        "name": "Lamarca Prosecco, Italy",
+                        "description": "Bouquet of golden apple, white peach & honeysuckle",
+                        "prices": [
+                          "7.50"
+                        ],
+                        "price": "7.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367346",
+                        "name": "Veuve De Vernay Brut, France",
+                        "description": "Crisp and fruity",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367348",
+                        "name": "Banfi Rosa Regale, Italy",
+                        "description": "Semi-sweet red sparkling wine with a rosy hue & a refreshing finish",
+                        "prices": [
+                          "7.50"
+                        ],
+                        "price": "7.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367350",
+                        "name": "Gruet Blanc De Noirs, New Mexico",
+                        "description": "Alive with crisp flavors of green apple, citrus & asian pear",
+                        "prices": [
+                          "16.00"
+                        ],
+                        "price": "16.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367352",
+                        "name": "Louis Roederer, France",
+                        "description": "Nuances of ripe pears, smoke, spices, dried flowers & herbs",
+                        "prices": [
+                          "29.00"
+                        ],
+                        "price": "29.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367354",
+                        "name": "Lamberti Prosecco Extra Dry, Italy",
+                        "description": "Crisp sparkling wine with a fresh, fruity finish",
+                        "prices": [
+                          "26.00"
+                        ],
+                        "price": "26.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367356",
+                        "name": "Moet Chandon Imperial, France",
+                        "description": "Elegant golden straw color with flavors of yellow peach, plum, pineapple & honey",
+                        "prices": [
+                          "58.00"
+                        ],
+                        "price": "58.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784028",
+                  "name": "1\/2 Bottle Selections - White Wine",
+                  "entries": {
+                    "count": 3,
+                    "items": [
+                      {
+                        "entryId": "58367358",
+                        "name": "Dry Creek Sauvignon Blanc, California",
+                        "description": "Zesty & full of energy, aromatics themes of lemongrass & lemon verbena with underlying tropical fruit richness",
+                        "prices": [
+                          "15.00"
+                        ],
+                        "price": "15.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367360",
+                        "name": "Simi Chardonay, California",
+                        "description": "Aromas of citrus, spice & toasted oak, flavors of peach, citrus & oak, good balance",
+                        "prices": [
+                          "15.00"
+                        ],
+                        "price": "15.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367362",
+                        "name": "Lageder Pinot Grigio, Italy",
+                        "description": "Brilliant straw color with a green shimmer, pronounced & expressive aroma with flowery & somewhat spicy notes",
+                        "prices": [
+                          "14.00"
+                        ],
+                        "price": "14.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784029",
+                  "name": "1\/2 Bottle Selections - Red Wine",
+                  "entries": {
+                    "count": 3,
+                    "items": [
+                      {
+                        "entryId": "58367365",
+                        "name": "King Estate Pinot Noir, Oregon",
+                        "description": "Berry, vanilla & oak spice flavors with a silky finish",
+                        "prices": [
+                          "17.00"
+                        ],
+                        "price": "17.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367367",
+                        "name": "Alexander Valley Merlot, Sonoma County",
+                        "description": "Aromas of black cherry, blackberry, oak,vanilla, plum & the slight eucalyptus typical of Alexander Valley",
+                        "prices": [
+                          "15.00"
+                        ],
+                        "price": "15.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367369",
+                        "name": "Dynamite Vineyards Cabernet Sauvignon, Red Hills Lake County",
+                        "description": "Aromas of black fruit, cassis and chocolate followed by luscious blackberry cobbler and toffee",
+                        "prices": [
+                          "15.00"
+                        ],
+                        "price": "15.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784030",
+                  "name": "Port & Sherry",
+                  "entries": {
+                    "count": 3,
+                    "items": [
+                      {
+                        "entryId": "58367371",
+                        "name": "Dry Sack Sherry",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367373",
+                        "name": "Warre's Otima 10 Tawny Port",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367375",
+                        "name": "Warre's Ruby Port",
+                        "prices": [
+                          "7.00"
+                        ],
+                        "price": "7.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "menuId": "miotkag5xash2t0na99p2fljm",
+            "name": "Vegan Menu",
+            "description": "",
+            "entries": {
+              "count": 4,
+              "items": [
+                {
+                  "sectionId": "s8784010",
+                  "name": "Appetizers",
+                  "entries": {
+                    "count": 4,
+                    "items": [
+                      {
+                        "entryId": "58367223",
+                        "name": "Plantain Strips",
+                        "description": "Served with a mango relish",
+                        "prices": [
+                          "8.00"
+                        ],
+                        "price": "8.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367226",
+                        "name": "Grilled Artichoke",
+                        "description": "2 Artichoke halves marinated in gluten-free soy sauce, balsamic vinegar & olive oil with a touch of fresh ginger & grilled on an open flame until tender",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367228",
+                        "name": "Guacamole & Chips",
+                        "description": "Our homemade guacamole",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367229",
+                        "name": "Hummus & Roasted Red Bell Pepper Spread",
+                        "description": "Homemade and served with cucumbers, kalamata olives & warm handmade flatbread",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784011",
+                  "name": "Salads",
+                  "entries": {
+                    "count": 4,
+                    "items": [
+                      {
+                        "entryId": "58367230",
+                        "name": "Smashed Chickpea Salad Lettuce Wrap",
+                        "description": "A delicious combination of chickpeas, celery, carrots, vegenaise & spices, served with avocado, red onion, tomatoes, cucumbers & sprouts",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367231",
+                        "name": "Arugula Salad",
+                        "description": "Baby arugula tossed with cranberries, grapefruit slices, beets, purple onion, toasted spicy walnuts, garbanzo beans & topped with mozzarella vegan cheese in a balsamic vinaigrette",
+                        "prices": [
+                          "12.00"
+                        ],
+                        "price": "12.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367232",
+                        "name": "Spinach Salad",
+                        "description": "Fresh spinach tossed with avocado, red onion, tomatoes, seasonal strawberries, toasted spicy walnuts & swiss vegan cheese in a raspberry vinaigrette",
+                        "prices": [
+                          "12.00"
+                        ],
+                        "price": "12.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367233",
+                        "name": "Garden Salad",
+                        "description": "Bibb lettuce, cucumbers, shredded carrots & cherry tomatoes in a lemon-olive oil vinaigrette",
+                        "prices": [
+                          "5.00"
+                        ],
+                        "price": "5.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784012",
+                  "name": "Sandwiches",
+                  "description": "Sandwiches served with french fries. Substitute garden salad, fresh fruit or sweet potato fries for $1",
+                  "entries": {
+                    "count": 5,
+                    "items": [
+                      {
+                        "entryId": "58367234",
+                        "name": "California",
+                        "description": "Avocado, sprouts, swiss vegan cheese, tomato & vegenaise served on our vegan\/gluten friendly quinoa bread",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367235",
+                        "name": "Portabello Burger",
+                        "description": "Grilled portabello mushroom topped with mixed field greens, roasted red bell pepper & vegenaise on our vegan\/gluten friendly quinoa bread",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367236",
+                        "name": "Basil Sunshine",
+                        "description": "Mozzarella vegan cheese, spinach, tomato & roasted red bell pepper on our homemade focaccia bread served with a side of basil vinaigrette",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367237",
+                        "name": "Vegan Club",
+                        "description": "Smoked turkey-style gluten, fakin' bacon, cheddar vegan cheese, lettuce, tomato & vegenaise on toasted vegan\/gluten friendly quinoa bread",
+                        "prices": [
+                          "12.00"
+                        ],
+                        "price": "12.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "83689217",
+                        "name": "Vegan Rueben",
+                        "description": "Our homemade wheat roast, melted swiss vegan cheese & sauerkraut with vegenaise on our vegan\/gluten friendly quinoa bread",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784014",
+                  "name": "Entrees",
+                  "entries": {
+                    "count": 2,
+                    "items": [
+                      {
+                        "entryId": "58367241",
+                        "name": "Pasta Puttanesca",
+                        "description": "Kalamata olives, capers, artichoke hearts, fire-roasted tomatoes, basil, garlic & olive oil served over quinoa pasta with mozzarella vegan cheese",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367244",
+                        "name": "Hippie Meatloaf",
+                        "description": "A wonderful vegan\/gluten friendly meatloaf made from quinoa, black beans, herbs & vegetables topped with gravy and served with vegan mashed potatoes & sautéed spinach & garlic",
+                        "prices": [
+                          "12.00"
+                        ],
+                        "price": "12.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "menuId": "m0t6clv1uuu2szbecasnf0ir9",
+            "name": "Regular Menu",
+            "description": "",
+            "entries": {
+              "count": 7,
+              "items": [
+                {
+                  "sectionId": "s8784013",
+                  "name": "Appetizing Starters",
+                  "entries": {
+                    "count": 9,
+                    "items": [
+                      {
+                        "entryId": "58367238",
+                        "name": "Plantain Strips",
+                        "description": "Served with cilantro-serrano cream sauce & mango relish",
+                        "prices": [
+                          "8.00"
+                        ],
+                        "price": "8.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367240",
+                        "name": "Hummus & Roasted Red Bell Pepper Spread",
+                        "description": "Homemade & served with cucumbers, kalamata olives & warm flatbread",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367242",
+                        "name": "Grilled Artichoke",
+                        "description": "2 Artichoke halves marinated in gluten-free soy sauce, balsamic vinegar & olive oil with a touch of fresh ginger grilled on an open flame until tender",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367243",
+                        "name": "Tomatoes Caprese",
+                        "description": "Roma tomatoes topped with fresh mozzarella & homemade basil vinaigrette",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367246",
+                        "name": "Brie & Feta Plate (for 2)",
+                        "description": "With roasted garlic, toasted spicy walnuts and seasonal fruit served with a multigrain baguette",
+                        "prices": [
+                          "14.00"
+                        ],
+                        "price": "14.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367248",
+                        "name": "Ceviche",
+                        "description": "Fresh seafood marinated in citrus juice topped with avocado & tomatoes served with tortilla chips",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367249",
+                        "name": "Guacamole & Chips",
+                        "description": "Our homemade guacamole",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367250",
+                        "name": "Italian Stuffed Mushrooms",
+                        "description": "Mushroom caps filled with italian sausage & herbed stuffing topped with parmesan cheese",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367251",
+                        "name": "Artichoke & Spinach Dip",
+                        "description": "Artichoke hearts & fresh spinach in a blend of parmesan, swiss & provolone cheeses, topped with diced tomatoes, served with tortilla chips",
+                        "prices": [
+                          "9.00"
+                        ],
+                        "price": "9.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784015",
+                  "name": "Soup & Gumbo",
+                  "entries": {
+                    "count": 2,
+                    "items": [
+                      {
+                        "entryId": "58367252",
+                        "name": "Soup of the Day",
+                        "prices": [
+                          "3.50"
+                        ],
+                        "price": "3.50",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367255",
+                        "name": "Chicken & Sausage Gumbo",
+                        "prices": [
+                          "4.50"
+                        ],
+                        "price": "4.50",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784017",
+                  "name": "Garden-Fresh Salads",
+                  "entries": {
+                    "count": 7,
+                    "items": [
+                      {
+                        "entryId": "58367258",
+                        "name": "Arugula Salad",
+                        "description": "Baby arugula tossed with cranberries, grapefruit slices, beets, purple onion, toasted spicy walnuts, garbanzo beans & topped with warm walnut encrusted goat cheese in a balsamic vinaigrette",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367262",
+                        "name": "Smashed Chickpea Salad Lettuce Wrap",
+                        "description": "A delicious combination of chickpeas, celery, carrots, vegenaise & spices, served with avocado, red onion, tomato, cucumber & sprouts",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367265",
+                        "name": "Sesame Encrusted Tuna Fillet",
+                        "description": "Served over mixed field greens, prepared rare & tossed in our sesame vinaigrette topped with avocado, cherry tomatoes, cucumbers, red onions & capers",
+                        "prices": [
+                          "18.00"
+                        ],
+                        "price": "18.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367269",
+                        "name": "Caesar Salad",
+                        "description": "The classic favorite with strips of marinated grilled chicken breast, roasted red bell pepper, cherry tomatoes, kalamata olives, croutons & parmesan cheese",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367271",
+                        "name": "Spinach Salad",
+                        "description": "Fresh spinach tossed with avocado, red onion, tomatoes, seasonal strawberries, toasted spicy walnuts & crumbled bleu cheese in a raspberry vinaigrette",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367274",
+                        "name": "Shrimp & Avocado Salad",
+                        "description": "Grilled shrimp, avocado, bacon, red onion, jicama, grapefruit & orange slices on a bed of mixed field greens with sun dried tomato chipotle dressing on the side",
+                        "prices": [
+                          "13.00"
+                        ],
+                        "price": "13.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367277",
+                        "name": "Garden Salad",
+                        "description": "Bibb lettuce, cucumbers, shredded carrots & cherry tomatoes in a lemon-olive oil vinaigrette",
+                        "prices": [
+                          "5.00"
+                        ],
+                        "price": "5.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784018",
+                  "name": "Delicious Sandwiches",
+                  "description": "Gluten Free - Sandwiches may be made gluten-friendly by requesting gluten-friendly\/vegan bread $1",
+                  "entries": {
+                    "count": 9,
+                    "items": [
+                      {
+                        "entryId": "58367280",
+                        "name": "Fish Tacos",
+                        "description": "Pan sauteed & topped with corn, black beans, purple onions & cabbage on corn tortillas with avocado, tomato and cilantro-serrano cream sauce served with chips & salsa",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367283",
+                        "name": "Old Smokey",
+                        "description": "Cold smoked salmon & cream cheese served with red onion, capers, cucumbers, hard-boiled egg & a toasted bagel",
+                        "prices": [
+                          "13.00"
+                        ],
+                        "price": "13.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367285",
+                        "name": "Italian Muffelatta",
+                        "description": "Smoked turkey breast, ham, provolone, lettuce, & tomato with fresh olive dressing on our homemade herbed focaccia bread served with basil pasta salad",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367287",
+                        "name": "Kummelweck Sandwich",
+                        "description": "Thinly sliced roast beef & caramelized onions on a toasted Kaiser roll served with au jus & horseradish sauce. Served with your choice of potato salad or french fries. Substitute garden salad, fresh fruit or sweet potato fries for $1",
+                        "prices": [
+                          "12.00"
+                        ],
+                        "price": "12.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367289",
+                        "name": "Chicken Breast Sandwich",
+                        "description": "Marinated & grilled topped with sauteed onion & red bell pepper, creamy Havarti, with basil mayo on a Kaiser roll & arugula on the side. Served with your choice of potato salad or french fries. Substitute garden salad, fresh fruit or sweet potato fries for $1",
+                        "prices": [
+                          "12.00"
+                        ],
+                        "price": "12.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367290",
+                        "name": "Club Sandwich",
+                        "description": "Turkey, bacon, lettuce, tomato, american cheese & mayo on toasted whole wheat bread. Served with your choice of potato salad or french fries. Substitute garden salad, fresh fruit or sweet potato fries for $1",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367291",
+                        "name": "Fantasy",
+                        "description": "Ham, avocado, tomato, & melted provolone with mayo served on a multigrain baguette. Served with your choice of potato salad or french fries. Substitute garden salad, fresh fruit or sweet potato fries for $1",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367292",
+                        "name": "Reuben",
+                        "description": "Corned beef, sauerkraut & melted swiss served with 1000 island dressing on marbled rye. Served with your choice of potato salad or french fries. Substitute garden salad, fresh fruit or sweet potato fries for $1",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367293",
+                        "name": "Smoked Turkey & Brie",
+                        "description": "Smoked turkey breast, melted french brie, tomato, & mixed field greens served on a multigrain baguette with a side of basil vinaigrette. Served with your choice of potato salad or french fries. Substitute garden salad, fresh fruit or sweet potato fries for $1",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784019",
+                  "name": "Tasty Entrees",
+                  "entries": {
+                    "count": 7,
+                    "items": [
+                      {
+                        "entryId": "58367294",
+                        "name": "Maple Mustard Grilled Salmon",
+                        "description": "Fresh salmon fillet marinated & grilled topped with maple-mustard glaze. Served with herbed basmati rice & sautéed vegetables",
+                        "prices": [
+                          "18.00"
+                        ],
+                        "price": "18.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367295",
+                        "name": "Grilled Breast of Chicken",
+                        "description": "8 oz. breast of chicken marinated & grilled topped with parsley-green onion chef sauce. Served with herbed basmati rice & sautéed vegetables",
+                        "prices": [
+                          "12.00"
+                        ],
+                        "price": "12.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367296",
+                        "name": "Rainbow Trout",
+                        "description": "Grilled fresh farm raised rainbow trout fillet topped with parsley-green onion chef sauce. Served with herbed basmati rice & sautéed vegetables",
+                        "prices": [
+                          "17.00"
+                        ],
+                        "price": "17.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367297",
+                        "name": "Ribeye",
+                        "description": "12 oz. marinated grilled ribeye served with loaded baked potato & sautéed vegetables. May be pan sautéed with blackened seasoning",
+                        "prices": [
+                          "18.00"
+                        ],
+                        "price": "18.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367298",
+                        "name": "Yellow Fin Tuna",
+                        "description": "Tuna steak grilled medium rare served with herbed basmati rice, broccoli, grilled tomatoes & parsley-green onion chef sauce. May be pan sautéed with blackened seasoning",
+                        "prices": [
+                          "18.00"
+                        ],
+                        "price": "18.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367299",
+                        "name": "Roasted Chicken",
+                        "description": "Seasoned with fresh thyme, cajun spices & topped with citrus butter & rosemary, served with garlic-chive mashed potatoes & sautéed vegetables",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367300",
+                        "name": "Pasta Puttanesca",
+                        "description": "Kalamata olives, capers, artichoke hearts, fire-roasted tomatoes, basil, garlic & olive oil served over linguini & topped with fresh parmesan cheese",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784020",
+                  "name": "Wholesome Vegetarian",
+                  "description": "Sandwiches & Burgers served with choice of potato salad or french fries. Substitute garden salad, fresh fruit or sweet potato fries for $1",
+                  "entries": {
+                    "count": 8,
+                    "items": [
+                      {
+                        "entryId": "58367302",
+                        "name": "Hippie Meatloaf",
+                        "description": "A wonderful gluten-friendly vegan meatloaf made from quinoa, black beans, herbs & vegetables topped with gravy, served with vegan mashed potatoes and sautéed spinach & garlic",
+                        "prices": [
+                          "12.00"
+                        ],
+                        "price": "12.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367303",
+                        "name": "Smashed Chickpea Salad Lettuce Wrap",
+                        "description": "A delicious combination of chickpeas, celery, carrots, vegenaise & spices, served with avocado, red onion, tomato, cucumber & sprouts",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367305",
+                        "name": "Black Bean Burger",
+                        "description": "Our homemade black bean patty topped with guacamole & chipotle mayo on a whole wheat bun with lettuce, tomato, onion & pickle on the side",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367306",
+                        "name": "Portabello Burger",
+                        "description": "Grilled portabello mushroom, topped with mixed field greens, roasted red bell pepper & fresh basil mayo on a whole wheat bun",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367307",
+                        "name": "Basil Sunshine",
+                        "description": "Fresh mozzarella, spinach, tomato & roasted red bell pepper on our homemade focaccia bread served with a side of basil vinaigrette",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367308",
+                        "name": "California",
+                        "description": "Avocado, sprouts, provolone cheese, tomato & mayo served on whole wheat bread",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367309",
+                        "name": "Vegetarian Club",
+                        "description": "Smoked turkey-style gluten, fakin' bacon, provolone cheese, lettuce, tomato & mayonnaise on toasted wheat bread",
+                        "prices": [
+                          "11.00"
+                        ],
+                        "price": "11.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367311",
+                        "name": "Vegetarian Reuben",
+                        "description": "Our homemade wheat roast, melted swiss & sauerkraut served with 1000 island dressing on a tasty marbled rye",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784022",
+                  "name": "Juicy Grilled Burgers",
+                  "description": "All burgers come with lettuce, tomato, onion & pickle on the side. Burgers served with choice of potato salad or french fries. Substitute garden salad, fresh fruit or sweet potato fries for $1. Gluten Free - Burgers may be prepared gluten-free by requesting gluten-free bread $0.50",
+                  "entries": {
+                    "count": 3,
+                    "items": [
+                      {
+                        "entryId": "58367313",
+                        "name": "Hand Formed in House 1\/2 Lb. Hormone Free Patties",
+                        "description": "Cooked medium & topped with your choice of ONE of the following: avocado or bacon or sautéed mushrooms or carmelized onions with melted american cheese & mayo on a sesame bun",
+                        "prices": [
+                          "12.00"
+                        ],
+                        "price": "12.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367314",
+                        "name": "Turkey Burger",
+                        "description": "Seasoned patty served with chipotle mayo on a whole wheat bun",
+                        "prices": [
+                          "10.00"
+                        ],
+                        "price": "10.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367316",
+                        "name": "Salmon Burger",
+                        "description": "Our house-made patty is a blend of fresh salmon, purple onion, red bell pepper, jalapeno, cheddar cheese & spices with jalapeno aioli served on a whole wheat bun",
+                        "prices": [
+                          "14.00"
+                        ],
+                        "price": "14.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "menuId": "mtf9c397aqmuwb2uni7gbplou",
+            "name": "Jasmine Room Menu",
+            "description": "",
+            "entries": {
+              "count": 18,
+              "items": [
+                {
+                  "sectionId": "s8784034",
+                  "name": "Dinner Buffet Menu",
+                  "description": "$28.95 per person",
+                  "entries": {
+                    "count": 0,
+                    "items": []
+                  }
+                },
+                {
+                  "sectionId": "s8784035",
+                  "name": "Appetizers",
+                  "entries": {
+                    "count": 2,
+                    "items": [
+                      {
+                        "entryId": "58367391",
+                        "name": "A Variety of Imported Cheeses & Delectable Fruits",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367392",
+                        "name": "Caesar Or Mixed Field Greens Salad",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784036",
+                  "name": "Main Course",
+                  "description": "Your Main Course is served with: A Variety of Julienne Vegetables such as Broccoli, Baby Carrots, Zucchini, Yellow Squash & Red Bell Pepper, accompanied by Homemade Garlic Mashed Potatoes. Choice of Two",
+                  "entries": {
+                    "count": 5,
+                    "items": [
+                      {
+                        "entryId": "58367393",
+                        "name": "Fresh Norwegian Salmon",
+                        "description": "Marinated & grilled to perfection, topped with our flavorful Dill Sauce",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367395",
+                        "name": "Succulent Breast of Chicken",
+                        "description": "Covered with a Mushroom Cream Sauce seasoned with Marsala Wine",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367396",
+                        "name": "Chicken Picatta",
+                        "description": "Pan sauteed with White Wine, & Lemon Butter topped with Capers",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367397",
+                        "name": "Indonesian Seasoned Oven Roasted Pork Tenderloin",
+                        "description": "Accompanied with zesty pineapple & green onion relish",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367398",
+                        "name": "Mouth-Watering Beef Brisket",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784037",
+                  "name": "Desserts",
+                  "description": "Your choice of a delicious selection of desserts",
+                  "entries": {
+                    "count": 1,
+                    "items": [
+                      {
+                        "entryId": "58367399",
+                        "name": "Specialty Cakes Available",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784038",
+                  "name": "Drinks",
+                  "entries": {
+                    "count": 1,
+                    "items": [
+                      {
+                        "entryId": "58367401",
+                        "name": "Coffee, Tea Or Soft Drink",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784039",
+                  "name": "We Also Offer Our \"South of the Border\" Menu",
+                  "description": "$28.95 per person",
+                  "entries": {
+                    "count": 0,
+                    "items": []
+                  }
+                },
+                {
+                  "sectionId": "s8784040",
+                  "name": "Appetizer",
+                  "entries": {
+                    "count": 1,
+                    "items": [
+                      {
+                        "entryId": "58367403",
+                        "name": "A Zesty Chile Con Queso Prepared Tex-Mex Style",
+                        "description": "Accompanied by our fresh homemade salsa served with tortilla chips & Baba Yega's Guacamole Salad",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784041",
+                  "name": "Main Course",
+                  "entries": {
+                    "count": 1,
+                    "items": [
+                      {
+                        "entryId": "58367405",
+                        "name": "A Tasty Combination of Marinated Beef & Chicken Fajitas",
+                        "description": "Served with Tortillas, Black Beans, Mexican Rice, Onions, Peppers, Pico de Gallo and an assortment of toppings to create the ultimate Mexican Dinner!",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784042",
+                  "name": "Dessert",
+                  "entries": {
+                    "count": 1,
+                    "items": [
+                      {
+                        "entryId": "58367407",
+                        "name": "Dessert",
+                        "description": "We recommend our version of the South American Old World Classic, Three Milks. An exceptionally moist cake flavored with rum topped with a heavenly Icing and your choice of fresh strawberries or bananas nestled between the layers",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784043",
+                  "name": "Drinks",
+                  "entries": {
+                    "count": 1,
+                    "items": [
+                      {
+                        "entryId": "58367408",
+                        "name": "Coffee, Tea Or Soft Drink",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784044",
+                  "name": "Lunch Buffet Menu",
+                  "description": "$18.95 per person",
+                  "entries": {
+                    "count": 0,
+                    "items": []
+                  }
+                },
+                {
+                  "sectionId": "s8784045",
+                  "name": "Appetizers",
+                  "entries": {
+                    "count": 1,
+                    "items": [
+                      {
+                        "entryId": "58367409",
+                        "name": "Caesar Or Mixed Field Greens Salad",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784046",
+                  "name": "Main Course",
+                  "description": "Your Main Course is served with: A Variety of Julienne A Variety of Julienne Vegetables such as Broccoli, Baby Carrots, Zucchini, Yellow Squash, Red Bell Pepper, accompanied by Herbed Rice. Choice of One:",
+                  "entries": {
+                    "count": 5,
+                    "items": [
+                      {
+                        "entryId": "58367410",
+                        "name": "Fresh Norwegian Salmon",
+                        "description": "Marinated & grilled to perfection, topped with our flavorful Dill Sauce",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367411",
+                        "name": "Succulent Breast of Chicken",
+                        "description": "Covered with a Mushroom Cream Sauce seasoned with Marsala Wine",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367412",
+                        "name": "Indonesian Seasoned Oven Roasted Pork Tenderloin",
+                        "description": "Accompanied with zesty pineapple & green onion relish",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367413",
+                        "name": "Chicken Picatta",
+                        "description": "Pan sauteed with White Wine, & Lemon Butter topped with Capers",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367414",
+                        "name": "Mouth-Watering Beef Brisket",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784047",
+                  "name": "Our \"South of the Border\" Menu",
+                  "description": "which includes:",
+                  "entries": {
+                    "count": 1,
+                    "items": [
+                      {
+                        "entryId": "58367415",
+                        "name": "Beef & Chicken Fajitas",
+                        "description": "Served with Tortillas, Black Beans, Rice, Guacamole grilled peppers & onions & an assortment of toppings to make the Ultimate Mexican dinner",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784048",
+                  "name": "Drinks",
+                  "description": "Includes",
+                  "entries": {
+                    "count": 1,
+                    "items": [
+                      {
+                        "entryId": "58367416",
+                        "name": "Coffee, Tea Or Soft Drink",
+                        "prices": [],
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784049",
+                  "name": "Desserts",
+                  "entries": {
+                    "count": 1,
+                    "items": [
+                      {
+                        "entryId": "58367417",
+                        "name": "Desserts",
+                        "description": "We offer a delicious selection of miniature desserts , Specialty cakes also available",
+                        "prices": [
+                          "3.00"
+                        ],
+                        "price": "3.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784050",
+                  "name": "Brunch Buffet Menu",
+                  "description": "$18.95 Per Person",
+                  "entries": {
+                    "count": 3,
+                    "items": [
+                      {
+                        "entryId": "58367418",
+                        "name": "Brunch Buffet Menu",
+                        "description": "Vegetable Frittata; Both beautiful & delicious this egg dish is a magical mixture of brightly colored vegetables blended with Swiss & cream cheese & delicately seasoned. Served with Grilled Ham, Home-fried Potatoes, Fresh Seasonal Fruit, and an assortment of Fresh Baked Breads & Muffins",
+                        "prices": [
+                          "18.95"
+                        ],
+                        "price": "18.95",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367419",
+                        "name": "Brunch Includes",
+                        "description": "Fresh Squeezed Orange Juice or s House Special Blend Coffee or Soft Drink A Cold Smoked Salmon Platter & Bagels may be ordered to complement your brunch",
+                        "prices": [
+                          "45.00"
+                        ],
+                        "price": "45.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367420",
+                        "name": "Mimosas & Bellinis",
+                        "description": "Offered during brunch on Saturdays only",
+                        "prices": [
+                          "5.00"
+                        ],
+                        "price": "5.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "sectionId": "s8784051",
+                  "name": "Hors D'oeuvres",
+                  "description": "Serves 20-30 people",
+                  "entries": {
+                    "count": 23,
+                    "items": [
+                      {
+                        "entryId": "58367421",
+                        "name": "Norwegian Smoked Salmon",
+                        "description": "Our tender Salmon has a delicate smoked flavor and is beautifully displayed on a bed of greens surrounded with Philadelphia Cream Cheese, Fresh Slices of Bermuda Onion & Spanish Capers",
+                        "prices": [
+                          "85.00"
+                        ],
+                        "price": "85.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367422",
+                        "name": "Coconut Battered Shrimp",
+                        "description": "Our large hand battered shrimp are rolled in a mixture of coconut & bread crumbs and deep fried to a savory golden brown perfection",
+                        "prices": [
+                          "95.00"
+                        ],
+                        "price": "95.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367423",
+                        "name": "Cold Boiled Shrimp",
+                        "description": "A bountiful platter of large, succulent gulf shrimp served chilled with a zesty cocktail sauce",
+                        "prices": [
+                          "90.00"
+                        ],
+                        "price": "90.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367424",
+                        "name": "Sesame Encrusted Tuna",
+                        "description": "Thinly sliced sushi grade tuna, prepared medium rare on top of cucumber slices with a delectable soy ginger sauce, garnished with a medley of oriental vegetables marinated in sesame vinaigrette",
+                        "prices": [
+                          "75.00"
+                        ],
+                        "price": "75.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367425",
+                        "name": "Salmon Mousse",
+                        "description": "A treasure from the sea! Our tasty mousse is velvety smooth with just the right touch of dill, molded into a beautiful fish with cucumber scales and lemon wheel fins",
+                        "prices": [
+                          "50.00"
+                        ],
+                        "price": "50.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367426",
+                        "name": "Tenderloin of Pork",
+                        "description": "A mouth-watering delight! Our delectable array of superb tenderloin accompanied by a spicy pineapple & green onion relish makes this a tantalizing dish. This one is a must for any occasion",
+                        "prices": [
+                          "80.00"
+                        ],
+                        "price": "80.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367427",
+                        "name": "Choice French Brie & Seasoned Roasted Garlic",
+                        "description": "Rich slices of our creamy Brie are accompanied by our Colossal Garlic cloves which are dipped in seasoned olive oil, roasted to a tender perfection & served with an array of fresh fruit",
+                        "prices": [
+                          "65.00"
+                        ],
+                        "price": "65.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367428",
+                        "name": "Authentic Deli Platter",
+                        "description": "The meat lover's dream! This delicious combination of Smoked Turkey, Honey Glazed Ham & Cajun Roast Beef is served with gourmet mustard and mayonnaise and freshly baked bread",
+                        "prices": [
+                          "65.00"
+                        ],
+                        "price": "65.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367429",
+                        "name": "Imported Cheese Board",
+                        "description": "A delightful combination of our flavorful cheeses including Smoked Gouda, Herbed Havarti, Jarlsberg & Pepper Jack, served with fresh fruit",
+                        "prices": [
+                          "65.00"
+                        ],
+                        "price": "65.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367430",
+                        "name": "Hors D'oeuvre Assortment",
+                        "description": "This delightful trio consists of Fillo Shells, with an unforgettable combination of spinach, zesty feta cheese, sun-dried tomato, pine nuts & tantalizing spices; Fillo Shells with a delicious mixture of shrimp & boursin cheese; and Artichoke Hearts with a touch of goat cheese dipped in a mixture of parmesan cheese & seasoned bread crumbs",
+                        "prices": [
+                          "65.00"
+                        ],
+                        "price": "65.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367431",
+                        "name": "Chicken & Queso in Fillo",
+                        "description": "Bite sized flaky fillo shells with smoked chicken, creamy queso, green chiles & green onion, baked until warm and crispy",
+                        "prices": [
+                          "65.00"
+                        ],
+                        "price": "65.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367432",
+                        "name": "Fiesta Tortilla Wraps",
+                        "description": "A tantalizing combination of flavored tortillas filled with a mixture of black beans, roasted red bell peppers, & cilantro, a blend of cream cheese, sun-dried tomatoes, greek olives & spices, and a blend of spicy roasted tomatilla & cream cheese, sliced into pinwheels, accompanied by our zesty salsa",
+                        "prices": [
+                          "50.00"
+                        ],
+                        "price": "50.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367433",
+                        "name": "Artichoke & Spinach Dip",
+                        "description": "A delicious combination of artichoke hearts & fresh spinach, blended with Parmesan, Swiss & Provolone cheese, served with tortilla chips",
+                        "prices": [
+                          "65.00"
+                        ],
+                        "price": "65.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367434",
+                        "name": "Chile Con Queso",
+                        "description": "Prepared Tex-Mex Style our zesty queso is accompanied with our fresh homemade salsa served with jalapenos & tortilla chips",
+                        "prices": [
+                          "60.00"
+                        ],
+                        "price": "60.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367435",
+                        "name": "Chicken Salad On Roma Tomatoes",
+                        "description": "Baba Yega's homemade roasted chicken salad on plump, garden fresh roma tomato slices served with freshly baked bread",
+                        "prices": [
+                          "50.00"
+                        ],
+                        "price": "50.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367436",
+                        "name": "Chicken Satay",
+                        "description": "Chicken breast skewers, marinated in an Indonesian soy sauce, grilled to perfection served with a flavorful blend of coconut-peanut sauce garnished with grilled seasonal fruit",
+                        "prices": [
+                          "75.00"
+                        ],
+                        "price": "75.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367437",
+                        "name": "Spicy Chicken Tenders",
+                        "description": "Marinated chicken breast, lightly seasoned & breaded, dipped in our homemade batter & deep fried, served with a tangy honey mustard sauce",
+                        "prices": [
+                          "75.00"
+                        ],
+                        "price": "75.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367438",
+                        "name": "Seasonal Fresh Fruits",
+                        "description": "A light & refreshing beginning for any event. A kaleidoscope of tropical and native fruits beautifully displayed",
+                        "prices": [
+                          "60.00"
+                        ],
+                        "price": "60.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367439",
+                        "name": "Grilled Vegetable Platter",
+                        "description": "A cornucopia of perfectly grilled garden vegetables, such as zucchini, yellow squash, carrots, mushrooms, asparagus & red bell pepper served with a homemade creamy herb sauce",
+                        "prices": [
+                          "60.00"
+                        ],
+                        "price": "60.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367440",
+                        "name": "Pasta Salad",
+                        "description": "A generous mixture of pasta, capers, artichoke hearts, broccoli, & cherry tomatoes, tossed in our homemade basil vinaigrette",
+                        "prices": [
+                          "50.00"
+                        ],
+                        "price": "50.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367441",
+                        "name": "Tomatoes Caprese",
+                        "description": "A colorful platter of beautifully arranged plump roma tomatoes, fresh mozzarella cheese & our flavorful basil dressing served with freshly baked bread",
+                        "prices": [
+                          "50.00"
+                        ],
+                        "price": "50.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367442",
+                        "name": "Mediterranean Sampler",
+                        "description": "Fresh Tabouli Salad, Tasty Hummus and Zesty Baba Ghanouj, decorated with tasty Kalamata olives & spicy Pepperoncini peppers served with slices of whole-wheat pita bread. Healthy & Delicious!",
+                        "prices": [
+                          "50.00"
+                        ],
+                        "price": "50.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367443",
+                        "name": "Mushrooms Florentine Or Italian Stuffed Mushrooms",
+                        "description": "Large mushroom caps generously filled with either a delicate blend of spinach, sautéed onions, garlic, & jalapenos or fresh herb stuffing & Italian sausage topped with parmesan cheese",
+                        "prices": [
+                          "50.00"
+                        ],
+                        "price": "50.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "menuId": "m81udwcb0m5dridvmudub8gam",
+            "name": "Desserts & Cakes",
+            "description": "",
+            "entries": {
+              "count": 2,
+              "items": [
+                {
+                  "sectionId": "s8784032",
+                  "name": "Baba Yega Cakes & Desserts!",
+                  "description": "We pride ourselves on fresh quality desserts made in-house daily. Our dessert tray changes regularly so make sure and ask your server to see the dessert menu. Our express lunch buffet include great desserts too. We also regularly offer some vegan dessert treats. Don't miss out on Houston's favorite desserts!",
+                  "entries": {
+                    "count": 0,
+                    "items": []
+                  }
+                },
+                {
+                  "sectionId": "s8784033",
+                  "name": "Baba Yega Signature Cakes",
+                  "description": "Our cakes may be ordered for in-house events or for pickup for your own private events!",
+                  "entries": {
+                    "count": 12,
+                    "items": [
+                      {
+                        "entryId": "58367384",
+                        "name": "Carrot Cake",
+                        "description": "A wonderfully moist cake baked with fresh carrots, pineapple, coconut, and walnuts, frosted with our homemade cream cheese icing",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367385",
+                        "name": "Three Layer Chocolate Mousse Cake",
+                        "description": "A moist chocolate fudge cake topped with a layer of fluffy sweetened cream cheese and finished with a decadent chocolate mousse",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367386",
+                        "name": "White Cake",
+                        "description": "A light white cake with fresh sliced strawberries nestled between the layers, frosted with a luscious whipped cream icing",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367387",
+                        "name": "Red Velvet Cake",
+                        "description": "Super moist, melt in your mouth, traditional red velvet light chocolate cake frosted with silky smooth cream cheese icing",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367388",
+                        "name": "Luscious Lemon Cake",
+                        "description": "With a slightly tart lemon curd between the layers, frosted with heavenly lemon whipped cream icing",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367389",
+                        "name": "French Vanilla Cake",
+                        "description": "A light, moist vanilla cake frosted with French vanilla butter cream icing",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367390",
+                        "name": "Strawberry Cake",
+                        "description": "A favorite for kids, moist cake blended with strawberries, frosted with strawberry cream cheese icing",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367394",
+                        "name": "Tres Leches (in-House Only)",
+                        "description": "An exceptionally moist cake made with three milks, flavored with rum, topped with whipped cream icing, $10 additional charge each size required for Tres Leches",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367400",
+                        "name": "Cheesecakes",
+                        "description": "Strawberry, chocolate, chocolate chip, praline, cappucino, almond joy, etc",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367402",
+                        "name": "Peanut Butter Pie",
+                        "description": "An oreo cookie crust topped with a heavenly whipped cream & peanut butter combination enhanced by a chocolate ganache topping",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367404",
+                        "name": "Lime Chiffon Pie",
+                        "description": "A buttery graham cracker crust filled with creamy chiffon, bursting with the flavor of freshly squeezed lime juice",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      },
+                      {
+                        "entryId": "58367406",
+                        "name": "Low Sugar Sacher Torte",
+                        "description": "A dense chocolate cake filled with a rich apricot filling topped with chocolate ganache icing",
+                        "prices": [
+                          "35.00"
+                        ],
+                        "price": "35.00",
+                        "options": [],
+                        "additions": []
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }{
+  "meta": {
+    "code": 200,
     "requestId": "59380d0d4c1f6749bda388e7"
   },
   "response": {
@@ -263,6 +3073,11 @@
               ]
             }
           }
+        ]
+      }
+    }
+  }
+}
         ]
       }
     }
