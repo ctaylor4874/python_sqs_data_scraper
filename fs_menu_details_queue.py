@@ -54,7 +54,7 @@ def parse_data(data):
     parsed_data = FoursquareVenueDetails(api_data)
     with closing(Session()) as s:
         try:
-            if len(parsed_data.happy_hour_string):
+            if parsed_data.happy_hour_string:
                     s.execute(UPDATE_QUERY, params={
                         'happy_hour_string': parsed_data.happy_hour_string.encode(
                             'utf-8') if parsed_data.happy_hour_string else None,
