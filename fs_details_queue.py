@@ -3,8 +3,10 @@ import os
 import logging
 import time
 import json
-
-from helpers import APIHandler
+from contextlib import closing
+import sqlalchemy
+from sqlalchemy.orm import sessionmaker
+from helpers import APIHandler, delete_message
 
 import sqs
 
@@ -14,6 +16,14 @@ FOURSQUARE_CLIENT_ID = os.getenv('FOURSQUARE_CLIENT_ID')
 FOURSQUARE_CLIENT_SECRET = os.getenv('FOURSQUARE_CLIENT_SECRET')
 BOTO_QUEUE_NAME_FS_DETAILS = 'fs_details_queue'
 BOTO_QUEUE_NAME_FS_MENU = 'fs_menu_details_queue'
+
+DELETE_QUERY = """
+DELETE FROM happyfinder_schema.happyfinder
+WHERE fs_venue_id = :fs_venue_id;
+"""
+
+engine = sqlalchemy.create_engine(os.getenv('HAPPYFINDER_ENGINE'), encoding='utf8')
+Session = sessionmaker(engine)
 
 
 def get_message(queue):
@@ -40,11 +50,21 @@ def make_url(data):
     return url
 
 
+def delete(fs_venue_id):
+    with closing(Session()) as s:
+        try:
+            s.execute(DELETE_QUERY, params={'fs_venue_id': fs_venue_id})
+        except Exception:
+            s.rollback()
+            raise
+        s.commit()
+
+
 def make_request(queue, message):
     api = APIHandler(message)
     api_data = api.get_load()
     parsed_data = FoursquareDetails(api_data)
-    if parsed_data.has_menu and parsed_data.venues:
+    if parsed_data.has_menu:
         url = make_url(parsed_data)
         data = {
             'url': url,
@@ -52,34 +72,8 @@ def make_request(queue, message):
             'fs_venue_id': parsed_data.fs_venue_id
         }
         send_message(queue, json.dumps(data))
-
-
-def delete_message(queue, message):
-    """
-    Delete the message from the queue.
-
-    See: http://boto3.readthedocs.io/en/latest/reference/services/sqs.html#SQS.Queue.delete_messages
-    :return:
-    """
-    entries = [
-        {
-            'Id': message.message_id,
-            'ReceiptHandle': message.receipt_handle
-        }
-    ]
-    response = queue.delete_messages(Entries=entries)
-
-    successful = response.get('Successful', [{}])[0].get('Id') == message.message_id
-    if successful:
-        return
-
-    failure_details = response.get('Failed', [{}])
-    failed_message_id = failure_details.get('Id')
-    if failed_message_id != message.message_id:
-        raise ValueError('Delete message was unsuccessful but failed message id does not match expected message id. '
-                         'failed_message_id={} expected_message_id={}'.format(failed_message_id, message.message_id))
-
-    raise ('Details: {}\nID: {}'.format(failure_details, failed_message_id))
+    else:
+        delete(parsed_data.fs_venue_id)
 
 
 def run():
