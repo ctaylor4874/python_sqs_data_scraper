@@ -7,12 +7,12 @@ from helpers import delete_message
 import sqs
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
-BOTO_REGION = 'us-west-2'
+
 BOTO_QUEUE_NAME_RADAR = 'radar_search_queue'
 BOTO_QUEUE_NAME_LAT_LNG = 'lat_lng_queue'
 
 
-# {"start_lat": 29.745712, "start_lng": -95.391927, "end_lat": 29.747826, "end_lng": -95.389770}
+# {"start_lat": 29.485034, "start_lng": -95.910645, "end_lat": 30.287532, "end_lng": -95.114136}
 
 def gen_coordinates(start_lat, start_lng, end_lat, end_lng):
     # Cities Scraped: Austin, Houston, Denver, Dallas, SF, Boston, NYC, Seattle,
