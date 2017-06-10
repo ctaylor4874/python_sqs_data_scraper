@@ -2,7 +2,7 @@ import os
 import logging
 import time
 
-from helpers import APIHandler
+from helpers import APIHandler, delete_message
 
 import sqs
 
@@ -42,34 +42,6 @@ def make_request(queue, message):
         if place_id:
             url = make_url(place_id)
             send_message(queue, url)
-
-
-def delete_message(queue, message):
-    """
-    Delete the message from the queue.
-
-    See: http://boto3.readthedocs.io/en/latest/reference/services/sqs.html#SQS.Queue.delete_messages
-    :return:
-    """
-    entries = [
-        {
-            'Id': message.message_id,
-            'ReceiptHandle': message.receipt_handle
-        }
-    ]
-    response = queue.delete_messages(Entries=entries)
-
-    successful = response.get('Successful', [{}])[0].get('Id') == message.message_id
-    if successful:
-        return
-
-    failure_details = response.get('Failed', [{}])
-    failed_message_id = failure_details.get('Id')
-    if failed_message_id != message.message_id:
-        raise ValueError('Delete message was unsuccessful but failed message id does not match expected message id. '
-                         'failed_message_id={} expected_message_id={}'.format(failed_message_id, message.message_id))
-
-    raise ('Details: {}\nID: {}'.format(failure_details, failed_message_id))
 
 
 def run():
