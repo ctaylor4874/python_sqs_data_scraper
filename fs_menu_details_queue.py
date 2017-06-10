@@ -2,7 +2,7 @@ import os
 import logging
 import time
 import json
-import contextlib
+from contextlib import closing
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 
@@ -52,28 +52,22 @@ def parse_data(data):
     category = data.get('category')
     api_data = api.get_load()
     parsed_data = FoursquareVenueDetails(api_data)
-    with contextlib.closing(Session()) as s:
-        if parsed_data.happy_hour_string or parsed_data.has_happy_hour:
-            try:
-                print('Has Happy Hour')
-                s.execute(UPDATE_QUERY, params={
-                    'happy_hour_string': parsed_data.happy_hour_string.encode(
-                        'utf-8') if parsed_data.happy_hour_string else None,
-                    'category': category.encode('utf-8') if category else None,
-                    'fs_venue_id': fs_venue_id
-                })
-            except Exception as err:
-                s.rollback()
-                raise
-            s.commit()
-        else:
-            try:
+    with closing(Session()) as s:
+        try:
+            if len(parsed_data.happy_hour_string):
+                    s.execute(UPDATE_QUERY, params={
+                        'happy_hour_string': parsed_data.happy_hour_string.encode(
+                            'utf-8') if parsed_data.happy_hour_string else None,
+                        'category': category.encode('utf-8') if category else None,
+                        'fs_venue_id': fs_venue_id
+                    })
+            else:
                 print('{}\nDeleting'.format(fs_venue_id))
                 s.execute(DELETE_QUERY, params={'fs_venue_id': fs_venue_id})
-            except Exception as err:
-                s.rollback()
-                raise
-            s.commit()
+        except Exception as err:
+            s.rollback()
+            raise
+        s.commit()
 
 
 def run():
