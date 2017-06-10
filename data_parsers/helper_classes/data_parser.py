@@ -105,7 +105,7 @@ class FoursquareDetails(Base):
 
     @property
     def venues(self):
-        return self.res.get('venues')[0] if len(self.res.get('venues')) else {}
+        return self.res.get('venues')[0] if self.res.get('venues') else {}
 
     def __repr__(self):
         return "FS Details: Response: {}".format(self.res)
