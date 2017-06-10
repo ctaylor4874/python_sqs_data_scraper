@@ -62,7 +62,6 @@ def parse_data(data):
                         'fs_venue_id': fs_venue_id
                     })
             else:
-                print('{}\nDeleting'.format(fs_venue_id))
                 s.execute(DELETE_QUERY, params={'fs_venue_id': fs_venue_id})
         except Exception as err:
             s.rollback()
