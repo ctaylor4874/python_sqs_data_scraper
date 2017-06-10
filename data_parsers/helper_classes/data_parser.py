@@ -97,7 +97,9 @@ class FoursquareDetails(Base):
 
     @property
     def category(self):
-        return self.venues.get('categories', {})[0].get('shortName', '')
+        if isinstance(self.venues.get('categories'), list):
+            return self.venues.get('categories', {})[0].get('shortName', '')
+        return None
 
     @property
     def has_menu(self):
