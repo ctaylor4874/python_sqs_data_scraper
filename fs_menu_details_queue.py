@@ -13,8 +13,6 @@ import sqs
 from helpers import delete_message
 from data_parsers.helper_classes import FoursquareVenueDetails
 
-FOURSQUARE_CLIENT_ID = os.getenv('FOURSQUARE_CLIENT_ID')
-FOURSQUARE_CLIENT_SECRET = os.getenv('FOURSQUARE_CLIENT_SECRET')
 BOTO_QUEUE_NAME_FS_MENU = 'fs_menu_details_queue'
 
 engine = sqlalchemy.create_engine(os.getenv('HAPPYFINDER_ENGINE'), encoding='utf8')
