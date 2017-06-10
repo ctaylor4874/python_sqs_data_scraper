@@ -1,7 +1,29 @@
+import os
 import requests
 import json
 import logging
 import time
+from itertools import cycle
+from collections import namedtuple
+
+FOURSQUARE_CLIENT_ID = os.getenv('FOURSQUARE_CLIENT_ID')
+FOURSQUARE_CLIENT_SECRET = os.getenv('FOURSQUARE_CLIENT_SECRET')
+SECONDARY_FOURSQUARE_CLIENT_ID = os.getenv('SECONDARY_FOURSQUARE_CLIENT_ID')
+SECONDARY_FOURSQUARE_CLIENT_SECRET = os.getenv('SECONDARY_FOURSQUARE_SECRET')
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+
+fs_credentials = namedtuple('Row', ['foursquare_client_id', 'foursquare_client_secret'])
+
+
+class Alternator:
+    def __init__(self):
+        self.alternator = cycle((
+            fs_credentials(SECONDARY_FOURSQUARE_CLIENT_ID, SECONDARY_FOURSQUARE_CLIENT_SECRET),
+            fs_credentials(FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET)
+        ))
+
+    def toggle_foursquare_values(self):
+        return next(self.alternator)
 
 
 class APIHandler:
