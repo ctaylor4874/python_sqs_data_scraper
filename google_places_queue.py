@@ -1,13 +1,13 @@
 import os
 import logging
 import time
-import contextlib
+from contextlib import closing
 import json
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
 
-from helpers import APIHandler
+from helpers import APIHandler, delete_message
 from data_parsers.helper_classes import GoogleDetails, FoursquareDetails
 import sqs
 
@@ -55,7 +55,7 @@ def make_url(parsed_data):
 
 def insert_data(data, fs_venue_id):
     if fs_venue_id:
-        with contextlib.closing(Session()) as s:
+        with closing(Session()) as s:
             try:
                 s.execute(INSERT_QUERY, params={
                     'v_name': data.name.encode('utf-8') or None,
@@ -98,34 +98,6 @@ def make_request(queue, message):
     fs_venue_id = get_fs_venue_id(url)
     insert_data(parsed_data, fs_venue_id)
     send_message(queue, url)
-
-
-def delete_message(queue, message):
-    """
-    Delete the message from the queue.
-
-    See: http://boto3.readthedocs.io/en/latest/reference/services/sqs.html#SQS.Queue.delete_messages
-    :return:
-    """
-    entries = [
-        {
-            'Id': message.message_id,
-            'ReceiptHandle': message.receipt_handle
-        }
-    ]
-    response = queue.delete_messages(Entries=entries)
-
-    successful = response.get('Successful', [{}])[0].get('Id') == message.message_id
-    if successful:
-        return
-
-    failure_details = response.get('Failed', [{}])
-    failed_message_id = failure_details.get('Id')
-    if failed_message_id != message.message_id:
-        raise ValueError('Delete message was unsuccessful but failed message id does not match expected message id. '
-                         'failed_message_id={} expected_message_id={}'.format(failed_message_id, message.message_id))
-
-    raise ('Details: {}\nID: {}'.format(failure_details, failed_message_id))
 
 
 def run():
