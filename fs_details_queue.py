@@ -6,14 +6,12 @@ import json
 from contextlib import closing
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
-from helpers import APIHandler, delete_message
+from helpers import APIHandler, Alternator, delete_message
 
 import sqs
 
 from data_parsers.helper_classes import FoursquareDetails
 
-FOURSQUARE_CLIENT_ID = os.getenv('FOURSQUARE_CLIENT_ID')
-FOURSQUARE_CLIENT_SECRET = os.getenv('FOURSQUARE_CLIENT_SECRET')
 BOTO_QUEUE_NAME_FS_DETAILS = 'fs_details_queue'
 BOTO_QUEUE_NAME_FS_MENU = 'fs_menu_details_queue'
 
@@ -44,9 +42,9 @@ def send_message(queue, url):
     check_errors(response)
 
 
-def make_url(data):
+def make_url(data, credentials):
     url = "https://api.foursquare.com/v2/venues/{}/menu?client_id={}&client_secret={}&v=20170109".format(
-        data.fs_venue_id, FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET)
+        data.fs_venue_id, credentials.foursquare_client_id, credentials.foursquare_client_secret)
     return url
 
 
@@ -60,12 +58,12 @@ def delete(fs_venue_id):
         s.commit()
 
 
-def make_request(queue, message):
+def make_request(queue, message, credentials):
     api = APIHandler(message)
     api_data = api.get_load()
     parsed_data = FoursquareDetails(api_data)
     if parsed_data.has_menu:
-        url = make_url(parsed_data)
+        url = make_url(parsed_data, credentials)
         data = {
             'url': url,
             'category': parsed_data.category,
@@ -77,6 +75,7 @@ def make_request(queue, message):
 
 
 def run():
+    credentials_alternator = Alternator()
     fs_details_queue = sqs.get_queue(BOTO_QUEUE_NAME_FS_DETAILS)
     menu_queue = sqs.get_queue(BOTO_QUEUE_NAME_FS_MENU)
     while True:
@@ -86,7 +85,8 @@ def run():
             time.sleep(5)
             continue
         logging.info('menu queue: {}\nmessage.body:{}'.format(menu_queue, message.body))
-        make_request(menu_queue, message.body)
+        credentials = credentials_alternator.toggle_foursquare_values()
+        make_request(menu_queue, message.body, credentials)
         delete_message(fs_details_queue, message)
 
 

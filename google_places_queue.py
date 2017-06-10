@@ -7,14 +7,13 @@ import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
 
-from helpers import APIHandler, delete_message
+from helpers import APIHandler, Alternator, delete_message
 from data_parsers.helper_classes import GoogleDetails, FoursquareDetails
 import sqs
 
 # Need 3 instances running
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
-FOURSQUARE_CLIENT_ID = os.getenv('FOURSQUARE_CLIENT_ID')
-FOURSQUARE_CLIENT_SECRET = os.getenv('FOURSQUARE_CLIENT_SECRET')
+
 BOTO_QUEUE_NAME_FS_DETAILS = 'fs_details_queue'
 BOTO_QUEUE_NAME_PLACES = 'google_places_queue'
 
@@ -47,9 +46,10 @@ def send_message(queue, url):
     check_errors(response)
 
 
-def make_url(parsed_data):
+def make_url(parsed_data, credentials):
     url = "https://api.foursquare.com/v2/venues/search?intent=match&ll={},{}&query={}&client_id={}&client_secret={}&v=20170109".format(
-        str(parsed_data.lat), str(parsed_data.lng), parsed_data.name, FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET)
+        str(parsed_data.lat), str(parsed_data.lng), parsed_data.name, credentials.foursquare_client_id,
+        credentials.foursquare_client_secret)
     return url
 
 
@@ -90,17 +90,18 @@ def get_fs_venue_id(message):
     return fs_data.fs_venue_id
 
 
-def make_request(queue, message):
+def make_request(queue, message, credentials):
     api = APIHandler(message)
     api_data = api.get_load()
     parsed_data = GoogleDetails(api_data)
-    url = make_url(parsed_data)
+    url = make_url(parsed_data, credentials)
     fs_venue_id = get_fs_venue_id(url)
     insert_data(parsed_data, fs_venue_id)
     send_message(queue, url)
 
 
 def run():
+    credentials_alternator = Alternator()
     google_places_queue = sqs.get_queue(BOTO_QUEUE_NAME_PLACES)
     foursquare_details_queue = sqs.get_queue(BOTO_QUEUE_NAME_FS_DETAILS)
     while True:
@@ -109,7 +110,8 @@ def run():
             logging.info(os.path.basename(__file__))
             time.sleep(5)
             continue
-        make_request(foursquare_details_queue, message.body)
+        credentials = credentials_alternator.toggle_foursquare_values()
+        make_request(foursquare_details_queue, message.body, credentials)
         delete_message(google_places_queue, message)
 
 
