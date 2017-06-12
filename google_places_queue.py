@@ -7,7 +7,7 @@ import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
 
-from helpers import APIHandler, Alternator, delete_message
+from helpers import APIHandler, Alternator, delete_message, FoursquareSession
 from data_parsers.helper_classes import GoogleDetails, FoursquareDetails
 import sqs
 
@@ -41,16 +41,14 @@ def check_errors(response):
     return response
 
 
-def send_message(queue, url):
-    response = queue.send_message(MessageBody=url)
+def send_message(queue, parsed_data):
+    data = {
+        'lat': parsed_data.lat,
+        'lng': parsed_data.lng,
+        'name': parsed_data.name
+    }
+    response = queue.send_message(MessageBody=json.dumps(data))
     check_errors(response)
-
-
-def make_url(parsed_data, credentials):
-    url = "https://api.foursquare.com/v2/venues/search?intent=match&ll={},{}&query={}&client_id={}&client_secret={}&v=20170109".format(
-        str(parsed_data.lat), str(parsed_data.lng), parsed_data.name, credentials.foursquare_client_id,
-        credentials.foursquare_client_secret)
-    return url
 
 
 def insert_data(data, fs_venue_id):
@@ -83,21 +81,22 @@ def insert_data(data, fs_venue_id):
                 s.commit()
 
 
-def get_fs_venue_id(message):
-    fs_api = APIHandler(message)
-    fs_api_data = fs_api.get_load()
-    fs_data = FoursquareDetails(fs_api_data)
+def get_fs_venue_id(parsed_data):
+    response = s.get('https://api.foursquare.com/v2/venues/search?intent=match&ll={},{}&query={}'.format(
+        parsed_data.lat, parsed_data.lng, parsed_data.name
+    ))
+    str_response = response.content.decode('utf-8')
+    fs_data = FoursquareDetails(json.loads(str_response))
     return fs_data.fs_venue_id
 
 
-def make_request(queue, message, credentials):
+def make_request(queue, message):
     api = APIHandler(message)
     api_data = api.get_load()
     parsed_data = GoogleDetails(api_data)
-    url = make_url(parsed_data, credentials)
-    fs_venue_id = get_fs_venue_id(url)
+    fs_venue_id = get_fs_venue_id(parsed_data)
     insert_data(parsed_data, fs_venue_id)
-    send_message(queue, url)
+    send_message(queue, parsed_data)
 
 
 def run():
@@ -117,6 +116,7 @@ def run():
 
 if __name__ == '__main__':
     logging.basicConfig(level=20, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
+    s = FoursquareSession(version='20170109')
     try:
         run()
     except Exception as e:

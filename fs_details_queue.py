@@ -6,7 +6,7 @@ import json
 from contextlib import closing
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
-from helpers import APIHandler, Alternator, delete_message
+from helpers import APIHandler, FoursquareSession, delete_message
 
 import sqs
 
@@ -75,7 +75,6 @@ def make_request(queue, message, credentials):
 
 
 def run():
-    credentials_alternator = Alternator()
     fs_details_queue = sqs.get_queue(BOTO_QUEUE_NAME_FS_DETAILS)
     menu_queue = sqs.get_queue(BOTO_QUEUE_NAME_FS_MENU)
     while True:
@@ -85,13 +84,13 @@ def run():
             time.sleep(5)
             continue
         logging.info('menu queue: {}\nmessage.body:{}'.format(menu_queue, message.body))
-        credentials = credentials_alternator.toggle_foursquare_values()
         make_request(menu_queue, message.body, credentials)
         delete_message(fs_details_queue, message)
 
 
 if __name__ == '__main__':
     logging.basicConfig(level=20, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
+    s = FoursquareSession(version='20170109')
     try:
         run()
     except Exception as e:
