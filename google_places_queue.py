@@ -7,11 +7,10 @@ import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
 
-from helpers import APIHandler, Alternator, delete_message, FoursquareSession
-from data_parsers.helper_classes import GoogleDetails, FoursquareDetails
+from helpers import APIHandler, delete_message, FoursquareSession
+from data_parsers.helper_classes import GoogleDetails
 import sqs
 
-# Need 3 instances running
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 
 BOTO_QUEUE_NAME_FS_DETAILS = 'fs_details_queue'
@@ -42,38 +41,36 @@ def check_errors(response):
 
 
 def send_message(queue, data):
-
     response = queue.send_message(MessageBody=json.dumps(data))
     check_errors(response)
 
 
 def insert_data(data):
-        with closing(Session()) as s:
-            try:
-                s.execute(INSERT_QUERY, params={
-                    'v_name': data.name.encode('utf-8') or None,
-                    'lat': data.lat or None,
-                    'lng': data.lng or None,
-                    'hours': json.dumps(data.hours,
-                                        ensure_ascii=False) if data.hours else None,
-                    'rating': data.rating if data.rating else None,
-                    'phone_number': data.phone_number.encode(
-                        'utf-8') if data.phone_number else None,
-                    'address': data.address.encode(
-                        'utf-8') if data.address else None,
-                    'url': data.url.encode('utf-8') if data.url else None,
-                    'google_id': data.google_id.encode('utf-8') or None,
-                    'price': data.price if data.price else None,
-                })
-            except IntegrityError or Exception as err:
-                s.rollback()
-                if IntegrityError:
-                    logging.info(err)
-                else:
-                    raise
+    with closing(Session()) as s:
+        try:
+            s.execute(INSERT_QUERY, params={
+                'v_name': data.name.encode('utf-8') or None,
+                'lat': data.lat or None,
+                'lng': data.lng or None,
+                'hours': json.dumps(data.hours,
+                                    ensure_ascii=False) if data.hours else None,
+                'rating': data.rating if data.rating else None,
+                'phone_number': data.phone_number.encode(
+                    'utf-8') if data.phone_number else None,
+                'address': data.address.encode(
+                    'utf-8') if data.address else None,
+                'url': data.url.encode('utf-8') if data.url else None,
+                'google_id': data.google_id.encode('utf-8') or None,
+                'price': data.price if data.price else None,
+            })
+        except IntegrityError or Exception as err:
+            s.rollback()
+            if IntegrityError:
+                logging.info(err)
             else:
-                s.commit()
-
+                raise
+        else:
+            s.commit()
 
 
 def make_request(queue, message):
