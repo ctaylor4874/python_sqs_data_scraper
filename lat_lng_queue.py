@@ -12,7 +12,7 @@ BOTO_QUEUE_NAME_RADAR = 'radar_search_queue'
 BOTO_QUEUE_NAME_LAT_LNG = 'lat_lng_queue'
 
 
-# Testing Lat/Lng: {"start_lat": 29.74030859108785, "start_lng": -95.45557022094727, "end_lat": 29.74425835446653, "end_lng": -95.4411506652832}
+# Testing Lat/Lng: {"start_lat": 29.733750149820516, "start_lng": -95.46664237976074, "end_lat": 29.749921894597488, "end_lng": -95.42046546936035}
 # {"start_lat": 29.485034, "start_lng": -95.910645, "end_lat": 30.287532, "end_lng": -95.114136}
 
 def gen_coordinates(start_lat, start_lng, end_lat, end_lng):
