@@ -37,7 +37,9 @@ def make_url(place_id):
 
 def make_request(queue, message):
     places = APIHandler(message)
-    for place in places.get_load().get('results', ''):
+    results = places.get_load().get('results', '')
+    logging.info("Length of result list: {}".format(len(results)))
+    for place in results:
         place_id = place.get('place_id', '')
         if place_id:
             url = make_url(place_id)
