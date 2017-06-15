@@ -6,7 +6,7 @@ import json
 from contextlib import closing
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
-from helpers import APIHandler, FoursquareSession, delete_message
+from helpers import FoursquareSession, delete_message
 
 import sqs
 
