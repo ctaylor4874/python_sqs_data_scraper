@@ -51,7 +51,7 @@ def run():
         message = get_message(radar_queue)
         if not message:
             logging.info(os.path.basename(__file__))
-            time.sleep(5)
+            time.sleep(30)
             continue
         make_request(places_queue, message.body)
         delete_message(radar_queue, message)
