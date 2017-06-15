@@ -80,9 +80,7 @@ def make_request(queue, message):
     api_data = api.get_load()
     parsed_data = GoogleDetails(api_data)
     exists = insert_data(parsed_data)
-    print(exists)
     if not exists:
-        print('SENDING')
         data = {
             'lat': parsed_data.lat,
             'lng': parsed_data.lng,
@@ -106,7 +104,7 @@ def run():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=30, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
+    logging.basicConfig(level=20, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
     s = FoursquareSession(version='20170109')
     try:
         run()
