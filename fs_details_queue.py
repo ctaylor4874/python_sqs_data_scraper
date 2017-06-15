@@ -15,13 +15,13 @@ from data_parsers.helper_classes import FoursquareDetails
 BOTO_QUEUE_NAME_FS_DETAILS = 'fs_details_queue'
 BOTO_QUEUE_NAME_FS_MENU = 'fs_menu_details_queue'
 
-DELETE_QUERY = """
-DELETE FROM happyfinder_schema.happyfinder
-WHERE fs_venue_id = :fs_venue_id;
-"""
-
 engine = sqlalchemy.create_engine(os.getenv('HAPPYFINDER_ENGINE'), encoding='utf8')
 Session = sessionmaker(engine)
+
+DELETE_QUERY = """
+DELETE FROM happyfinder_schema.happyfinder
+WHERE google_id = :google_id;
+"""
 
 
 def get_message(queue):
@@ -42,36 +42,42 @@ def send_message(queue, url):
     check_errors(response)
 
 
-def make_url(data, credentials):
-    url = "https://api.foursquare.com/v2/venues/{}/menu?client_id={}&client_secret={}&v=20170109".format(
-        data.fs_venue_id, credentials.foursquare_client_id, credentials.foursquare_client_secret)
-    return url
+def get_fs_data(lat, lng, name):
+    response = s.get('https://api.foursquare.com/v2/venues/search?intent=match&ll={},{}&query={}'.format(
+        lat, lng, name
+    ))
+    str_response = response.content.decode('utf-8')
+    fs_data = FoursquareDetails(json.loads(str_response))
+    return fs_data
 
 
-def delete(fs_venue_id):
-    with closing(Session()) as s:
+def delete(google_id):
+    with closing(Session()) as conn:
         try:
-            s.execute(DELETE_QUERY, params={'fs_venue_id': fs_venue_id})
-        except Exception:
-            s.rollback()
+            conn.execute(DELETE_QUERY, params={'google_id': google_id})
+        except Exception as err:
+            conn.rollback()
             raise
-        s.commit()
+        else:
+            conn.commit()
 
 
-def make_request(queue, message, credentials):
-    api = APIHandler(message)
-    api_data = api.get_load()
-    parsed_data = FoursquareDetails(api_data)
+def make_request(queue, message):
+    lat = message.get('lat')
+    lng = message.get('lng')
+    name = message.get('name')
+    google_id = message.get('google_id')
+    parsed_data = get_fs_data(lat, lng, name)
+
     if parsed_data.has_menu:
-        url = make_url(parsed_data, credentials)
         data = {
-            'url': url,
-            'category': parsed_data.category,
-            'fs_venue_id': parsed_data.fs_venue_id
+            'fs_venue_id': parsed_data.fs_venue_id,
+            'google_id': google_id,
+            'category': parsed_data.category
         }
         send_message(queue, json.dumps(data))
     else:
-        delete(parsed_data.fs_venue_id)
+        delete(google_id)
 
 
 def run():
@@ -81,10 +87,11 @@ def run():
         message = get_message(fs_details_queue)
         if not message:
             logging.info(os.path.basename(__file__))
-            time.sleep(5)
+            time.sleep(30)
             continue
-        logging.info('menu queue: {}\nmessage.body:{}'.format(menu_queue, message.body))
-        make_request(menu_queue, message.body, credentials)
+        message_data = json.loads(message.body)
+        logging.info('menu queue: {}\nmessage.body:{}'.format(menu_queue, message_data))
+        make_request(menu_queue, message_data)
         delete_message(fs_details_queue, message)
 
 
