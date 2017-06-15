@@ -67,24 +67,29 @@ def insert_data(data):
             s.rollback()
             if IntegrityError:
                 logging.info(err)
+                return True
             else:
                 raise
         else:
             s.commit()
+            return False
 
 
 def make_request(queue, message):
     api = APIHandler(message)
     api_data = api.get_load()
     parsed_data = GoogleDetails(api_data)
-    insert_data(parsed_data)
-    data = {
-        'lat': parsed_data.lat,
-        'lng': parsed_data.lng,
-        'name': parsed_data.name,
-        'google_id': parsed_data.google_id
-    }
-    send_message(queue, data)
+    exists = insert_data(parsed_data)
+    print(exists)
+    if not exists:
+        print('SENDING')
+        data = {
+            'lat': parsed_data.lat,
+            'lng': parsed_data.lng,
+            'name': parsed_data.name,
+            'google_id': parsed_data.google_id
+        }
+        send_message(queue, data)
 
 
 def run():
@@ -101,7 +106,7 @@ def run():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=20, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
+    logging.basicConfig(level=30, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
     s = FoursquareSession(version='20170109')
     try:
         run()
