@@ -90,7 +90,7 @@ def run():
             time.sleep(30)
             continue
         message_data = json.loads(message.body)
-        logging.info('menu queue: {}\nmessage.body:{}'.format(menu_queue, message_data))
+        logging.debug('menu queue: {}\nmessage.body:{}'.format(menu_queue, message_data))
         make_request(menu_queue, message_data)
         delete_message(fs_details_queue, message)
 
