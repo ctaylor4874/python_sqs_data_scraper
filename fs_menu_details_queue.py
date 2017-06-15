@@ -10,7 +10,7 @@ from helpers import APIHandler
 
 import sqs
 
-from helpers import delete_message
+from helpers import delete_message, FoursquareSession
 from data_parsers.helper_classes import FoursquareVenueDetails
 
 BOTO_QUEUE_NAME_FS_MENU = 'fs_menu_details_queue'
@@ -21,13 +21,14 @@ Session = sessionmaker(engine)
 UPDATE_QUERY = """
 UPDATE happyfinder_schema.happyfinder SET
 happy_hour_string = :happy_hour_string,
+fs_venue_id = :fs_venue_id,
 category = :category
-WHERE fs_venue_id = :fs_venue_id;
+WHERE google_id = :google_id;
 """
 
 DELETE_QUERY = """
 DELETE FROM happyfinder_schema.happyfinder
-WHERE fs_venue_id = :fs_venue_id;
+WHERE google_id = :google_id;
 """
 
 
@@ -44,27 +45,36 @@ def check_errors(response):
     return response
 
 
+def get_data(fs_venue_id):
+    response = s.get("https://api.foursquare.com/v2/venues/{}/menu?".format(
+        fs_venue_id))
+    str_response = response.content.decode('utf-8')
+    fs_data = FoursquareVenueDetails(json.loads(str_response))
+    return fs_data
+
+
 def parse_data(data):
-    api = APIHandler(data.get('url'))
+    google_id = data.get('google_id')
     fs_venue_id = data.get('fs_venue_id')
     category = data.get('category')
-    api_data = api.get_load()
-    parsed_data = FoursquareVenueDetails(api_data)
-    with closing(Session()) as s:
+    parsed_data = get_data(fs_venue_id)
+    with closing(Session()) as conn:
         try:
-            if parsed_data.happy_hour_string:
-                    s.execute(UPDATE_QUERY, params={
-                        'happy_hour_string': parsed_data.happy_hour_string.encode(
-                            'utf-8') if parsed_data.happy_hour_string else None,
-                        'category': category.encode('utf-8') if category else None,
-                        'fs_venue_id': fs_venue_id
-                    })
+            if parsed_data.happy_hour_string and fs_venue_id:
+                conn.execute(UPDATE_QUERY, params={
+                    'happy_hour_string': parsed_data.happy_hour_string.encode(
+                        'utf-8') if parsed_data.happy_hour_string else None,
+                    'fs_venue_id': fs_venue_id.encode('utf-8') if fs_venue_id else None,
+                    'category': category.encode('utf-8') if category else None,
+                    'google_id': google_id.encode('utf-8')
+                })
             else:
-                s.execute(DELETE_QUERY, params={'fs_venue_id': fs_venue_id})
+                conn.execute(DELETE_QUERY, params={'google_id': google_id})
         except Exception as err:
-            s.rollback()
+            conn.rollback()
             raise
-        s.commit()
+        else:
+            conn.commit()
 
 
 def run():
@@ -73,7 +83,7 @@ def run():
         message = get_message(menu_queue)
         if not message:
             logging.info(os.path.basename(__file__))
-            time.sleep(5)
+            time.sleep(30)
             continue
         data = json.loads(message.body)
         parse_data(data)
@@ -81,7 +91,8 @@ def run():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=30, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
+    logging.basicConfig(level=20, format='%(asctime)s:{}'.format(logging.BASIC_FORMAT))
+    s = FoursquareSession(version='20170109')
     try:
         run()
     except Exception as e:
