@@ -16,6 +16,10 @@ fs_credentials = namedtuple('Row', ['foursquare_client_id', 'foursquare_client_s
 
 
 class Alternator:
+    """
+    A class to alternate through credentials.
+    """
+
     def __init__(self):
         self.alternator = cycle((
             fs_credentials(SECONDARY_FOURSQUARE_CLIENT_ID, SECONDARY_FOURSQUARE_CLIENT_SECRET),
@@ -27,46 +31,36 @@ class Alternator:
 
 
 class APIHandler:
+    """
+    Class to handle API calls and responses.
+
+    Contains methods to check Foursquare response to see if my query limit has been reached.
+    """
+
     def __init__(self, url):
         self.url = url
 
     def get_load(self):
+        """
+        Makes the API call to the requested url and checks the response.
+
+        :return: Parsed json response from requested URL.
+        """
         res = requests.get(self.url)
         self.check_response(res)
         str_response = res.content.decode('utf-8')
         return json.loads(str_response)
 
     def check_response(self, res):
+        """
+        Method to check the response to see if the query limit has been reached.
+
+        If the query limit has been reached the method will sleep until the specified reset time.
+        :param res: API response.
+        :return:
+        """
         if 'foursquare' in self.url and res.status_code == 403:
             reset_time = float(res.headers.pop('X-RateLimit-Reset'))
             logging.info('Rate Limit will Reset at: {}'.format(reset_time))
             while time.time() < reset_time:
                 time.sleep(5)
-
-
-def delete_message(queue, message):
-    """
-    Delete the message from the queue.
-
-    See: http://boto3.readthedocs.io/en/latest/reference/services/sqs.html#SQS.Queue.delete_messages
-    :return:
-    """
-    entries = [
-        {
-            'Id': message.message_id,
-            'ReceiptHandle': message.receipt_handle
-        }
-    ]
-    response = queue.delete_messages(Entries=entries)
-
-    successful = response.get('Successful', [{}])[0].get('Id') == message.message_id
-    if successful:
-        return
-
-    failure_details = response.get('Failed', [{}])
-    failed_message_id = failure_details.get('Id')
-    if failed_message_id != message.message_id:
-        raise ValueError('Delete message was unsuccessful but failed message id does not match expected message id. '
-                         'failed_message_id={} expected_message_id={}'.format(failed_message_id, message.message_id))
-
-    raise ('Details: {}\nID: {}'.format(failure_details, failed_message_id))
