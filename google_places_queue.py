@@ -28,24 +28,6 @@ INSERT_QUERY = """
        """
 
 
-def get_message(queue):
-    message = queue.receive_messages(MaxNumberOfMessages=1)
-    if not message:
-        return None
-    return message[0]
-
-
-def check_errors(response):
-    if response.get('ResponseMetadata', '').get('HTTPStatusCode', '') is not 200:
-        logging.info('ERROR! {}'.format(response))
-    return response
-
-
-def send_message(queue, url):
-    response = queue.send_message(MessageBody=url)
-    check_errors(response)
-
-
 def make_url(parsed_data, credentials):
     url = "https://api.foursquare.com/v2/venues/search?intent=match&ll={},{}&query={}&client_id={}&client_secret={}&v=20170109".format(
         str(parsed_data.lat), str(parsed_data.lng), parsed_data.name, credentials.foursquare_client_id,
@@ -97,7 +79,7 @@ def make_request(queue, message, credentials):
     url = make_url(parsed_data, credentials)
     fs_venue_id = get_fs_venue_id(url)
     insert_data(parsed_data, fs_venue_id)
-    send_message(queue, url)
+    sqs.send_message(queue, url)
 
 
 def run():
@@ -105,14 +87,14 @@ def run():
     google_places_queue = sqs.get_queue(BOTO_QUEUE_NAME_PLACES)
     foursquare_details_queue = sqs.get_queue(BOTO_QUEUE_NAME_FS_DETAILS)
     while True:
-        message = get_message(google_places_queue)
+        message = sqs.get_message(google_places_queue)
         if not message:
             logging.info(os.path.basename(__file__))
             time.sleep(5)
             continue
         credentials = credentials_alternator.toggle_foursquare_values()
         make_request(foursquare_details_queue, message.body, credentials)
-        delete_message(google_places_queue, message)
+        sqs.delete_message(google_places_queue, message)
 
 
 if __name__ == '__main__':
