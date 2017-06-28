@@ -1,4 +1,9 @@
-# Need 3 instances running.
+"""
+Loads message from the venue details queue.
+
+Once a message has been received it makes the api request and parses the data to build the next
+message to send to menu details queue.
+"""
 import os
 import logging
 import time
@@ -6,10 +11,9 @@ import json
 from contextlib import closing
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
-from helpers import APIHandler, Alternator, delete_message
 
 import sqs
-
+from helpers import APIHandler, Alternator
 from data_parsers.helper_classes import FoursquareDetails
 
 BOTO_QUEUE_NAME_FS_DETAILS = 'fs_details_queue'
@@ -25,6 +29,13 @@ Session = sessionmaker(engine)
 
 
 def make_url(data, credentials):
+    """
+    URL generator to get menu details from Foursquare.
+
+    :param data: Information about the venue.
+    :param credentials: Foursquare credentials.
+    :return: Generated URL.
+    """
     url = "https://api.foursquare.com/v2/venues/{}/menu?client_id={}&client_secret={}&v=20170109".format(
         data.fs_venue_id, credentials.foursquare_client_id, credentials.foursquare_client_secret)
     return url
@@ -41,6 +52,19 @@ def delete(fs_venue_id):
 
 
 def make_request(queue, message, credentials):
+    """
+    Creates an API object base on the message and gets the data.  Calls parsers and handlers
+    for the api response and sends message to fs menu details queue if necessary.
+
+    If the api response does not contain a menu, the script will delete the existing entry from the
+    database.  If it does have a menu the script with generate the url to get the menu details and
+    send the url along with some additional information to Foursquare menu details queue.
+
+    :param queue: Foursquare menu details queue.
+    :param message: Message received from Foursquare details queue.
+    :param credentials: Foursquare credentials.
+    :return:
+    """
     api = APIHandler(message)
     api_data = api.get_load()
     parsed_data = FoursquareDetails(api_data)
