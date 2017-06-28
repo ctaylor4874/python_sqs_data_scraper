@@ -16,11 +16,10 @@ fs_credentials = namedtuple('Row', ['foursquare_client_id', 'foursquare_client_s
 
 
 class Alternator:
-    """
-    A class to alternate through credentials.
-    """
-
     def __init__(self):
+        """
+        A class to alternate through credentials.
+        """
         self.alternator = cycle((
             fs_credentials(SECONDARY_FOURSQUARE_CLIENT_ID, SECONDARY_FOURSQUARE_CLIENT_SECRET),
             fs_credentials(FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET)
@@ -31,13 +30,13 @@ class Alternator:
 
 
 class APIHandler:
-    """
-    Class to handle API calls and responses.
-
-    Contains methods to check Foursquare response to see if my query limit has been reached.
-    """
-
     def __init__(self, url):
+        """
+        Class to handle API calls and responses.
+
+        Contains methods to check Foursquare response to see if my query limit has been reached.
+        :param url: Url to make the api request to.
+        """
         self.url = url
 
     def get_load(self):
