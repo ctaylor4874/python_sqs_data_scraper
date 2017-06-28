@@ -1,8 +1,13 @@
+"""
+Script to receive messages from the radar search queue and send a message to the google places queue.
+Once a message is received, the message is parsed and processed to prepare the data to send to google places
+queue.
+"""
 import os
 import logging
 import time
 
-from helpers import APIHandler, delete_message
+from helpers import APIHandler
 
 import sqs
 
@@ -11,50 +16,53 @@ BOTO_QUEUE_NAME_RADAR = 'radar_search_queue'
 BOTO_QUEUE_NAME_PLACES = 'google_places_queue'
 
 
-def get_message(queue):
-    message = queue.receive_messages(MaxNumberOfMessages=1)
-    if not message:
-        return None
-    return message[0]
-
-
-def check_errors(response):
-    if response.get('ResponseMetadata', '').get('HTTPStatusCode', '') is not 200:
-        logging.info('ERROR! {}'.format(response))
-    return response
-
-
-def send_message(queue, url):
-    response = queue.send_message(MessageBody=url)
-    check_errors(response)
-
-
 def make_url(place_id):
+    """
+    Generator for the google place details url.
+
+    :param place_id: The google place ID that the url will build on.
+    :return: The generated url.
+    """
     url = "https://maps.googleapis.com/maps/api/place/details/json?placeid={}&key={}".format(
         place_id, GOOGLE_API_KEY)
     return url
 
 
 def make_request(queue, message):
+    """
+    Iterates over the list of places returned from the radar search and builds a URL for each
+    place.
+
+    :param queue: The google places SQS container.
+    :param message: The message received from the radar search queue.
+    :return:
+    """
     places = APIHandler(message)
     for place in places.get_load().get('results', ''):
         place_id = place.get('place_id', '')
         if place_id:
             url = make_url(place_id)
-            send_message(queue, url)
+            sqs.send_message(queue, url)
 
 
 def run():
+    """
+    Runner for radar_search_queue.py.
+
+    If there is no message returned from get_message, the program will sleep for 5 seconds and then
+    check again.  Once all requests have been completed, the message is deleted from the queue.
+    :return:
+    """
     radar_queue = sqs.get_queue(BOTO_QUEUE_NAME_RADAR)
     places_queue = sqs.get_queue(BOTO_QUEUE_NAME_PLACES)
     while True:
-        message = get_message(radar_queue)
+        message = sqs.get_message(radar_queue)
         if not message:
             logging.info(os.path.basename(__file__))
             time.sleep(5)
             continue
         make_request(places_queue, message.body)
-        delete_message(radar_queue, message)
+        sqs.delete_message(radar_queue, message)
 
 
 if __name__ == '__main__':
