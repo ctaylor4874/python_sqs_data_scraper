@@ -7,10 +7,7 @@ import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 
 from helpers import APIHandler
-
 import sqs
-
-from helpers import delete_message
 from data_parsers.helper_classes import FoursquareVenueDetails
 
 BOTO_QUEUE_NAME_FS_MENU = 'fs_menu_details_queue'
@@ -31,19 +28,6 @@ WHERE fs_venue_id = :fs_venue_id;
 """
 
 
-def get_message(queue):
-    message = queue.receive_messages(MaxNumberOfMessages=1)
-    if not message:
-        return None
-    return message[0]
-
-
-def check_errors(response):
-    if response.get('ResponseMetadata', '').get('HTTPStatusCode', '') is not 200:
-        logging.info('ERROR! {}'.format(response))
-    return response
-
-
 def parse_data(data):
     api = APIHandler(data.get('url'))
     fs_venue_id = data.get('fs_venue_id')
@@ -53,12 +37,12 @@ def parse_data(data):
     with closing(Session()) as s:
         try:
             if parsed_data.happy_hour_string:
-                    s.execute(UPDATE_QUERY, params={
-                        'happy_hour_string': parsed_data.happy_hour_string.encode(
-                            'utf-8') if parsed_data.happy_hour_string else None,
-                        'category': category.encode('utf-8') if category else None,
-                        'fs_venue_id': fs_venue_id
-                    })
+                s.execute(UPDATE_QUERY, params={
+                    'happy_hour_string': parsed_data.happy_hour_string.encode(
+                        'utf-8') if parsed_data.happy_hour_string else None,
+                    'category': category.encode('utf-8') if category else None,
+                    'fs_venue_id': fs_venue_id
+                })
             else:
                 s.execute(DELETE_QUERY, params={'fs_venue_id': fs_venue_id})
         except Exception as err:
@@ -70,14 +54,14 @@ def parse_data(data):
 def run():
     menu_queue = sqs.get_queue(BOTO_QUEUE_NAME_FS_MENU)
     while True:
-        message = get_message(menu_queue)
+        message = sqs.get_message(menu_queue)
         if not message:
             logging.info(os.path.basename(__file__))
             time.sleep(5)
             continue
         data = json.loads(message.body)
         parse_data(data)
-        delete_message(menu_queue, message)
+        sqs.delete_message(menu_queue, message)
 
 
 if __name__ == '__main__':
