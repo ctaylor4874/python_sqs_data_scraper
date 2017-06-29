@@ -1,3 +1,7 @@
+"""
+Script to receive messages from the lat_lng_queue and send a message to the radar_search_queue.
+Once a message is received, the message is parsed and processed to prepare the data to send to radar_search_queue.
+"""
 import os
 import logging
 import time
@@ -11,6 +15,19 @@ BOTO_QUEUE_NAME_LAT_LNG = 'lat_lng_queue'
 
 
 def gen_coordinates(start_lat, start_lng, end_lat, end_lng):
+    """
+    Generates coordinates to send to the next queue.
+
+    Generates all coordinates between the two coordinates provided and loads creates a url with them.
+    The coordinates are then loaded into the url_list to be sent to the radar search queue.  Does this a half mile at
+    a time, working west -> east until bounds are hit, then moves north a half mile and repeats until both max lat
+     and max lng bounds are hit.
+    :param start_lat: Starting latitude for the generator.
+    :param start_lng: Starting longitude for the generator.
+    :param end_lat: Ending latitude for the generator.
+    :param end_lng: Ending longitude for the generator.
+    :return: List of url's to send to queue.
+    """
     url_list = []
     logging.info("Moved to next city...")
     current_lat = start_lat

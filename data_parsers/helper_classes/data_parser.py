@@ -1,5 +1,5 @@
 """
-Module holds the object models for the Happy Hour app
+Contains classes to parse data for application.
 """
 import os
 import requests
@@ -157,69 +157,3 @@ class FoursquareVenueDetails(Base):
         return "<FS Venue Details: happy_hour_string: {}>".format(
             self.happy_hour_string
         )
-
-
-def scrape():
-    # Cities Scraped: Austin, Houston, Denver, Dallas, SF, Boston, NYC, Seattle,
-    # Chicago, LA, SLC, Philly, Raleigh, Atlanta
-    locations = [{
-        # Atlanta
-        'start': {
-            'lat': 33.863164999999974,
-            'lng': -84.50515199999998
-        },
-        'end': {
-            'lat': 33.872696,
-            'lng': -84.295349
-        }
-    }, {
-        # SLC
-        'start': {
-            'lat': 40.495004,
-            'lng': -112.100372
-        },
-        'end': {
-            'lat': 40.816927,
-            'lng': -111.770782
-        }
-    }, {
-        # Greater Houston
-        'start': {
-            'lat': 29.485034,
-            'lng': -95.910645
-        },
-        'end': {
-            'lat': 30.287532,
-            'lng': -95.114136
-        }
-    }, {
-        # Philly
-        'start': {
-            'lat': 39.837014,
-            'lng': -75.279694
-        },
-        'end': {
-            'lat': 40.151588,
-            'lng': -74.940491
-        }
-    }, {
-        # Raleigh
-        'start': {
-            'lat': 35.727284,
-            'lng': -78.751373
-        },
-        'end': {
-            'lat': 35.827835,
-            'lng': -78.587265
-        }
-    }, {
-        # Atlanta
-        'start': {
-            'lat': 33.588311,
-            'lng': -84.538422
-        },
-        'end': {
-            'lat': 33.872696,
-            'lng': -84.295349
-        }
-    }]

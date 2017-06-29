@@ -42,6 +42,12 @@ def make_url(data, credentials):
 
 
 def delete(fs_venue_id):
+    """
+    Function to delete row from database.  Call when there is no menu available.
+
+    :param fs_venue_id: Foursquare venue ID.
+    :return:
+    """
     with closing(Session()) as s:
         try:
             s.execute(DELETE_QUERY, params={'fs_venue_id': fs_venue_id})

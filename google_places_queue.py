@@ -1,3 +1,7 @@
+"""
+Script to receive messages from the google_places_queue and send a message to the fs_details_queue.
+Once a message is received, the message is parsed and processed to prepare the data to send to fs_details_queue.
+"""
 import os
 import logging
 import time
@@ -7,11 +11,10 @@ import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
 
-from helpers import APIHandler, Alternator, delete_message
+from helpers import APIHandler, Alternator
 from data_parsers.helper_classes import GoogleDetails, FoursquareDetails
 import sqs
 
-# Need 3 instances running
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 
 BOTO_QUEUE_NAME_FS_DETAILS = 'fs_details_queue'
@@ -29,6 +32,13 @@ INSERT_QUERY = """
 
 
 def make_url(parsed_data, credentials):
+    """
+    Generates url for foursquare details search.
+
+    :param parsed_data: Parsed google data.
+    :param credentials: Foursquare credentials.
+    :return: URL.
+    """
     url = "https://api.foursquare.com/v2/venues/search?intent=match&ll={},{}&query={}&client_id={}&client_secret={}&v=20170109".format(
         str(parsed_data.lat), str(parsed_data.lng), parsed_data.name, credentials.foursquare_client_id,
         credentials.foursquare_client_secret)
@@ -36,6 +46,13 @@ def make_url(parsed_data, credentials):
 
 
 def insert_data(data, fs_venue_id):
+    """
+    Inserts data into database if there is a foursquare venue ID available.
+
+    :param data: Parsed google data.
+    :param fs_venue_id: Foursquare venue ID.
+    :return:
+    """
     if fs_venue_id:
         with closing(Session()) as s:
             try:
@@ -66,6 +83,12 @@ def insert_data(data, fs_venue_id):
 
 
 def get_fs_venue_id(message):
+    """
+    Makes call to APIHandler to get foursquare venue details.
+
+    :param message: Foursquare url.
+    :return: Foursquare venue ID.
+    """
     fs_api = APIHandler(message)
     fs_api_data = fs_api.get_load()
     fs_data = FoursquareDetails(fs_api_data)
@@ -73,6 +96,14 @@ def get_fs_venue_id(message):
 
 
 def make_request(queue, message, credentials):
+    """
+    Runner for google details and foursquare queue.
+
+    :param queue: Foursquare details queue..
+    :param message: Message received from google places queue.
+    :param credentials: Foursquare credentials.
+    :return:
+    """
     api = APIHandler(message)
     api_data = api.get_load()
     parsed_data = GoogleDetails(api_data)

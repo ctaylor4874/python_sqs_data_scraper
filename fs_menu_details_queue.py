@@ -1,3 +1,7 @@
+"""
+Script to receive messages from the fs_menu_details_queue and either store happy hour data or remove row from database.
+Once a message is received, the message is parsed and processed to prepare the data for the database.
+"""
 import os
 import logging
 import time
@@ -29,6 +33,12 @@ WHERE fs_venue_id = :fs_venue_id;
 
 
 def parse_data(data):
+    """
+    Loads the url into the APIHandler. If there is a happy hour, update the database.  If not delete row.
+
+    :param data: Dict received from SQS.
+    :return:
+    """
     api = APIHandler(data.get('url'))
     fs_venue_id = data.get('fs_venue_id')
     category = data.get('category')
@@ -52,6 +62,11 @@ def parse_data(data):
 
 
 def run():
+    """
+    Runner for the script.
+
+    :return:
+    """
     menu_queue = sqs.get_queue(BOTO_QUEUE_NAME_FS_MENU)
     while True:
         message = sqs.get_message(menu_queue)
